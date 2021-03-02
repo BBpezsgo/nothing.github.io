@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="description" content="A Nothing weboldala, ahonnan letöltheted a játékot.">
     <meta name="author" content="BB">
-    <meta property="og:image"  content="imgs/image.png">
+    <meta property="og:image" content="imgs/image.png">
     <meta name="twitter:image" content="imgs/image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Nothing, játék, game, letöltés, download, BB, bb, bb pezsgő, BB pezsgő, stragégia, stragégiai, sandbox">
+    <meta name="keywords"
+        content="Nothing, játék, game, letöltés, download, BB, bb, bb pezsgő, BB pezsgő, stragégia, stragégiai, sandbox">
     <link rel="icon" type="image/png" href="imgs/Box2.png">
     <title>
         Nothing
@@ -77,6 +78,7 @@
     </p>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        /*#region Scrollbar*/
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -94,9 +96,14 @@
         }
 
         ::-webkit-scrollbar-thumb:active {
-            background: #f1e5d3;
+            background: #f7f0e6;
         }
 
+        /*#endregion */
+        /*#region Header*/
+        /*#region Box icon*/
+        /*#endregion */
+        /*#region Dropdown*/
         .box {
             width: 32px;
             height: 32px;
@@ -114,148 +121,6 @@
         .box:hover {
             background: url("imgs/Box1.png") no-repeat;
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            background: #c4985e;
-        }
-
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        .navbar a.right {
-            float: right;
-        }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .row {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        }
-
-        .side {
-            position: fixed;
-            -ms-flex: 30%;
-            flex: 30%;
-            padding: 20px;
-            background-color: #f0cea1;
-            top: 60px;
-            left: 10px;
-            width: 250px;
-            background-color: #f0cea1;
-            box-shadow: #7c5c33 5px 5px;
-        }
-
-        .sidec a {
-            color: black;
-        }
-
-        .sidec a:hover {
-            color: rgb(139, 139, 139);
-        }
-
-        .sidec a:active {
-            color: white;
-        }
-
-        .main {
-            -ms-flex: 70%;
-            flex: 70%;
-            background-color: white;
-            padding: 20px;
-            background: #c4985e;
-            padding-left: 270px;
-        }
-
-        .main img {
-            width: 100%;
-        }
-
-        .main form {
-            background-color: #f0cea1;
-            box-shadow: #7c5c33 5px 5px;
-            padding: 5px;
-            margin-bottom: 15px;
-        }
-
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background-color: white;
-        }
-
-        @media screen and (max-width: 700px) {
-            .row {
-                flex-direction: column;
-            }
-        }
-
-        @media screen and (max-width: 400px) {
-            .navbar a {
-                float: none;
-                width: 100%;
-            }
-        }
-
-        .email {
-            background-color: #dd4b39;
-            color: white;
-        }
-
-        .discord {
-            background-color: #1d69c0;
-            color: white;
-        }
-
-        input,
-        .cbtn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            margin: 5px 0;
-            opacity: 0.85;
-            display: inline-block;
-            font-size: 17px;
-            line-height: 20px;
-            text-decoration: none;
-        }
-
-        input:hover,
-        .cbtn:hover {
-            opacity: 1;
-        }
-
-        input:active,
-        .cbtn:active {
-            opacity: 0.9;
-        }
-
 
         .dropdown {
             float: right;
@@ -282,6 +147,10 @@
             background-color: #ddd
         }
 
+        .dropdown-content a:active {
+            background-color: rgb(184, 184, 184)
+        }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -289,6 +158,10 @@
         .btn:hover,
         .dropdown:hover .btn {
             background-color: #0b7dda;
+        }
+
+        .btn:active, .btn {
+            background-color: #0a6dbe;
         }
 
         .btn {
@@ -302,6 +175,133 @@
             cursor: pointer;
         }
 
+        /*#endregion */
+        header {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        header a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        header a.right {
+            float: right;
+        }
+
+        header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /*#endregion */
+        /*#region Side*/
+        nav {
+            position: fixed;
+            -ms-flex: 30%;
+            flex: 30%;
+            padding: 20px;
+            background-color: #f0cea1;
+            top: 60px;
+            left: 10px;
+            width: 20.35%;
+            background-color: #f0cea1;
+            box-shadow: #7c5c33 5px 5px;
+            min-width: 150px;
+        }
+
+        .sidec a {
+            color: black;
+        }
+
+        .sidec a:hover {
+            color: rgb(139, 139, 139);
+        }
+
+        .sidec a:active {
+            color: white;
+        }
+
+        .email {
+            background-color: #dd4b39;
+            color: white;
+        }
+
+        .discord {
+            background-color: #1d69c0;
+            color: white;
+        }
+
+        @media screen and (max-width: 400px) {
+            .navbar a {
+                float: none;
+                width: 100%;
+            }
+        }
+
+        input,
+        .cbtn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 20px;
+            text-decoration: none;
+        }
+
+        input:hover,
+        .cbtn:hover {
+            opacity: 1;
+        }
+
+        input:active,
+        .cbtn:active {
+            opacity: 0.9;
+        }
+
+        /*#endregion */
+        /*#region Main*/
+        section {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex: 70%;
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+            background: #c4985e;
+            padding-left: 270px;
+        }
+
+        .mainimg {
+            width: 100%;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            box-shadow: #7c5c33 5px 5px;
+        }
+
+        section form {
+            background-color: #f0cea1;
+            box-shadow: #7c5c33 5px 5px;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+
+        /*#endregion */
+        /*#region Treeview*/
         ul,
         #myUL {
             list-style-type: none;
@@ -343,11 +343,36 @@
         .active {
             display: block;
         }
+
+        /*#endregion */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #c4985e;
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+            color: #3d2e1a;
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
-<body>    
-    <div class="navbar">
+<body>
+    <header>
         <div class="box"></div>
         <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
             <b>Nothing</b>
@@ -361,15 +386,18 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div id="myDropdown" class="dropdown-content">
-                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!354&parId=6AEB0DA011C539BF!362&authkey=!AHHviMAHSFAXhaY" target="_blank">Nothing</a>
-                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!527&parId=6AEB0DA011C539BF!101&authkey=!AIEQvNSpk7cjwZM" target="_blank">Nothing 2</a>
-                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!355&parId=6AEB0DA011C539BF!362&authkey=!AHUIORiS8_PeR_M" target="_blank">main.mp3</a>
+                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!354&parId=6AEB0DA011C539BF!362&authkey=!AHHviMAHSFAXhaY"
+                    target="_blank">Nothing</a>
+                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!527&parId=6AEB0DA011C539BF!101&authkey=!AIEQvNSpk7cjwZM"
+                    target="_blank">Nothing 2</a>
+                <a href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!355&parId=6AEB0DA011C539BF!362&authkey=!AHUIORiS8_PeR_M"
+                    target="_blank">main.mp3</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <div class="row">
-        <div class="side">
+    <section>
+        <nav>
             <div class="sidec">
                 <h3 style="color: black;">Készítése</h3>
                 <p style="color: black;">
@@ -387,10 +415,9 @@
             <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="discord cbtn">
                 Discord szerverem
             </a>
-        </div>
-
-        <div class="main">
-            <img src="imgs/image.png" style="padding-top: 25px;margin-bottom: 10px;box-shadow: #7c5c33 5px 5px">
+        </nav>
+        <article>
+            <img src="imgs/image.png" class="mainimg">
             <form>
                 <h2>Leírás</h2>
                 Ez egy stragégiai játék. Van lehetőség benne építkezésre, és egységek gyártására is. A játék fő célja,
@@ -404,7 +431,6 @@
                     <li><span class="caret">Játékos testreszabás</span>
                         <ul class="nested">
                             <li><span class="caret">Fegyverek</span>
-                                <!--17-->
                                 <ul class="nested">
                                     <li><img src="imgs/treeview/player/0.png">Gépfegyver</li>
                                     <li><img src="imgs/treeview/player/1.png">Nagy gépfegyver</li>
@@ -680,12 +706,12 @@
                 </ul>
 
             </form>
-        </div>
-    </div>
+        </article>
+    </section>
 
-    <div class="footer">
+    <footer>
         <h2>A játék még nincs kész! Hibák előfordulhatnak benne.</h2>
-    </div>
+    </footer>
 
     <script>
         function myFunction() {
