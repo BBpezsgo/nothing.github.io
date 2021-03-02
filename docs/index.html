@@ -160,7 +160,8 @@
             background-color: #0b7dda;
         }
 
-        .btn:active, .btn {
+        .btn:active,
+        .btn {
             background-color: #0a6dbe;
         }
 
@@ -204,18 +205,37 @@
 
         /*#endregion */
         /*#region Side*/
-        nav {
+
+        .sidebar {
             position: fixed;
             -ms-flex: 30%;
             flex: 30%;
             padding: 20px;
-            background-color: #f0cea1;
-            top: 60px;
-            left: 10px;
+            top: 50px;
+            left: 0px;
             width: 20.35%;
-            background-color: #f0cea1;
+            min-width: 180px;
+        }
+
+        .sidebar th {
             box-shadow: #7c5c33 5px 5px;
-            min-width: 150px;
+            background-color: #f0cea1;
+            padding: 5px;
+        }
+
+        .new {
+            border: solid 2px;
+            border-left: 0;
+            border-top-color: #b99360;
+            border-right: 0;
+            border-bottom: 0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .lastchanges {
+            text-align: left;
+            font-weight: normal;
         }
 
         .sidec a {
@@ -223,11 +243,23 @@
         }
 
         .sidec a:hover {
-            color: rgb(139, 139, 139);
+            color: rgb(82, 82, 82);
         }
 
         .sidec a:active {
-            color: white;
+            color: rgb(139, 139, 139);
+        }
+
+        .news a {
+            color: black;
+        }
+
+        .news a:hover {
+            color: rgb(82, 82, 82);
+        }
+
+        .news a:active {
+            color: rgb(139, 139, 139);
         }
 
         .email {
@@ -354,6 +386,7 @@
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             background: #c4985e;
+            cursor: default;
         }
 
         footer {
@@ -367,6 +400,13 @@
             .row {
                 flex-direction: column;
             }
+        }
+
+        label {
+            font-weight: bold;
+            color: red;
+            text-decoration: solid;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -397,25 +437,59 @@
     </header>
 
     <section>
-        <nav>
-            <div class="sidec">
-                <h3 style="color: black;">Készítése</h3>
-                <p style="color: black;">
-                    Az első verziót a <a href="https://www.gamemaker8.com" target="_blank">Game Maker 8</a> programban
-                    készítettem,
-                    de mível kicsik voltak benne a határok, ezért elkezdtem a Nothing 2-t készíteni, de ezt már
-                    a <a href="https://unity.com" target="_blank">Unity</a>-ben.
-                </p>
-            </div>
-            <h3 style="color: black;">Kapcsolat</h3>
+        <table class="sidebar">
+            <tr>
+                <th>
+                    <div class="sidec">
+                        <h3 style="color: black;">Készítése</h3>
+                        <p style="color: black;font-weight: normal;">
+                            Az első verziót a <a href="https://www.gamemaker8.com" target="_blank">Game Maker 8</a>
+                            programban
+                            készítettem,
+                            de mível kicsik voltak benne a határok, ezért elkezdtem a Nothing 2-t készíteni, de ezt
+                            már
+                            a <a href="https://unity.com" target="_blank">Unity</a>-ben.
+                        </p>
+                    </div>
+                    <h3 style="color: black;">Kapcsolat</h3>
 
-            <a href="mailto:bazsi5fel@gmail.com" class="email cbtn">
-                E-mail
-            </a>
-            <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="discord cbtn">
-                Discord szerverem
-            </a>
-        </nav>
+                    <a href="mailto:bazsi5fel@gmail.com" class="email cbtn">
+                        E-mail
+                    </a>
+                    <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="discord cbtn">
+                        Discord szerverem
+                    </a>
+                </th>
+            </tr>
+            <tr style="height: 10px;"></tr>
+            <tr>
+                <th>
+                    <div class="news">
+                        <h3 style="color: black;">Utolsó frissítés</h3>
+                        <table>
+                            <tr>
+                                <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Weboldal:</th>
+                                <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 03. 02.</th>
+                            </tr>
+                            <tr>
+                                <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Nothing:</th>
+                                <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 02. 05.</th>
+                            </tr>
+                            <tr>
+                                <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Nothing 2:</th>
+                                <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 02. 27.</th>
+                            </tr>
+                        </table>
+                        <h3 style="color: black;">Hírek</h3>
+                        <div class="new">
+                            Nincs semmi újdonság
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </table>
+
+
         <article>
             <img src="imgs/image.png" class="mainimg">
             <form>
@@ -428,277 +502,383 @@
                 <h2>Tartalom</h2>
 
                 <ul id="myUL">
-                    <li><span class="caret">Játékos testreszabás</span>
+                    <li><span class="caret">Nothing</span>
                         <ul class="nested">
-                            <li><span class="caret">Fegyverek</span>
+                            <li><span class="caret">Játékos testreszabás</span>
                                 <ul class="nested">
-                                    <li><img src="imgs/treeview/player/0.png">Gépfegyver</li>
-                                    <li><img src="imgs/treeview/player/1.png">Nagy gépfegyver</li>
-                                    <li><img src="imgs/treeview/player/2.png">Minigun</li>
-                                    <li><img src="imgs/treeview/player/3.png">Automataágyú</li>
-                                    <li><img src="imgs/treeview/player/4.png">Ágyú</li>
-                                    <li><img src="imgs/treeview/player/5.png">Railgun</li>
-                                    <li><img src="imgs/treeview/player/6.png">Foszforágyú</li>
-                                    <li><img src="imgs/treeview/player/7.png">Shotgun</li>
-                                    <li><img src="imgs/treeview/player/8.png">Shotgun II</li>
-                                    <li><img src="imgs/treeview/player/9.png">Lángszóró</li>
-                                    <li><img src="imgs/treeview/player/10.png">Teslatekercs</li>
-                                    <li><img src="imgs/treeview/player/11.png">Lézer</li>
-                                    <li><img src="imgs/treeview/player/12.png">Gránát</li>
-                                    <li><img src="imgs/treeview/player/13.png">Tarack</li>
-                                    <li><img src="imgs/treeview/player/14.png">Követőrakéta</li>
-                                    <li><img src="imgs/treeview/player/15.png">Tankelhárító rakéta</li>
-                                    <li><img src="imgs/treeview/player/16.png">Speciális fegyver</li>
-                                </ul>
-                            </li>
-                            <li><span class="caret">Karosszériák</span>
-                                <ul class="nested">
-                                    <li><img src="imgs/treeview/player/21.png">Kicsi tank karosszéria</li>
-                                    <li><img src="imgs/treeview/player/22.png">Közepes furgon karosszéria</li>
-                                    <li><img src="imgs/treeview/player/23.png">Dzsip karosszéria</li>
-                                    <li><img src="imgs/treeview/player/24.png" style="width: 25px;">Nagy terepjáró
-                                        karosszéria</li>
-                                    <li><img src="imgs/treeview/player/25.png">Közepes tank karosszéria</li>
-                                    <li><img src="imgs/treeview/player/26.png">Nehéz tank karosszéria</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span class="caret">Építkezés</span>
-                        <ul class="nested">
-                            <li><span class="caret">Termelők</span>
-                                <ul class="nested">
-                                    <li><img src="imgs/treeview/buildings/0.png">Olajkút</li>
-                                    <li><img src="imgs/treeview/buildings/1.png">Bánya</li>
-                                    <li><img src="imgs/treeview/buildings/2.png">Erőmű</li>
-                                    <li><img src="imgs/treeview/buildings/3.png">Gyár</li>
-                                </ul>
-                            </li>
-                            <li><span class="caret">Elektronika</span>
-                                <ul class="nested">
-                                    <li><img src="imgs/treeview/buildings/4.png">Vezeték</li>
-                                    <li><img src="imgs/treeview/buildings/5.png">Generátor</li>
-                                    <li><img src="imgs/treeview/buildings/6.png">LH Transzfomátor</li>
-                                    <li><img src="imgs/treeview/buildings/7.png">HL Transzformátor</li>
-                                    <li><img src="imgs/treeview/buildings/8.png">Elem</li>
-                                    <li><img src="imgs/treeview/buildings/9.png">Kapcsoló</li>
-                                </ul>
-                            </li>
-                            <li><span class="caret">Védelem</span>
-                                <ul class="nested">
-                                    <li><img src="imgs/treeview/buildings/10.png">Fal</li>
-                                    <li><img src="imgs/treeview/buildings/11.png">Falra szerelt gépfegyver</li>
-                                    <li><img src="imgs/treeview/buildings/12.png">Bunker</li>
-                                    <li><img src="imgs/treeview/buildings/13.png">Ballisztikus rakéta állványzat</li>
-                                </ul>
-                            </li>
-                            <li><span class="caret">Egyéb</span>
-                                <ul class="nested">
-                                    <li><img src="imgs/treeview/buildings/14.png">Labor [Nem működik]</li>
-                                    <li><img src="imgs/treeview/buildings/15.png">Javító üzem</li>
-                                    <li><img src="imgs/treeview/buildings/16.png">Gyár fejlesztés</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span class="caret">Gyártás</span>
-                        <ul class="nested">
-                            <li>Építő</li>
-                            <li><span class="caret">Támadó harckocsik</span>
-                                <ul class="nested">
-                                    <li>Antirocket</li>
-                                    <li>Shotgun-os terepjáró</li>
-                                    <li>Kisrakéta indítós</li>
-                                    <li>Gépfegyveres APC</li>
-                                    <li>Tank</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span class="caret">Ellenségek</span>
-                        <ul class="nested">
-                            <li><span class="caret">[E]</span>
-                                <ul class="nested">
-                                    <li><span class="caret">Épületek</span>
+                                    <li><span class="caret">Fegyverek</span>
                                         <ul class="nested">
-                                            <li><span class="caret">Bázis</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/e/0.png">Gyár</li>
-                                                    <li><img src="imgs/treeview/enemies/e/1.png"
-                                                            style="width: 24px;height: 24px;">VTOL gyár</li>
-                                                    <li><img src="imgs/treeview/enemies/e/2.png">Fal</li>
-                                                </ul>
+                                            <li><img src="imgs/treeview/player/0.png">Gépfegyver</li>
+                                            <li><img src="imgs/treeview/player/1.png">Nagy gépfegyver</li>
+                                            <li><img src="imgs/treeview/player/2.png">Minigun</li>
+                                            <li><img src="imgs/treeview/player/3.png">Automataágyú</li>
+                                            <li><img src="imgs/treeview/player/4.png">Ágyú</li>
+                                            <li><img src="imgs/treeview/player/5.png">Railgun</li>
+                                            <li><img src="imgs/treeview/player/6.png">Foszforágyú</li>
+                                            <li><img src="imgs/treeview/player/7.png">Shotgun</li>
+                                            <li><img src="imgs/treeview/player/8.png">Shotgun II</li>
+                                            <li><img src="imgs/treeview/player/9.png">Lángszóró</li>
+                                            <li><img src="imgs/treeview/player/10.png">Teslatekercs</li>
+                                            <li><img src="imgs/treeview/player/11.png">Lézer</li>
+                                            <li><img src="imgs/treeview/player/12.png">Gránát</li>
+                                            <li><img src="imgs/treeview/player/13.png">Tarack</li>
+                                            <li><img src="imgs/treeview/player/14.png">Követőrakéta</li>
+                                            <li><img src="imgs/treeview/player/15.png">Tankelhárító rakéta</li>
+                                            <li><img src="imgs/treeview/player/16.png">Speciális fegyver</li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Karosszériák</span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/player/21.png">Kicsi tank karosszéria</li>
+                                            <li><img src="imgs/treeview/player/22.png">Közepes furgon karosszéria
+                                                <label>alfa</label>
                                             </li>
-                                            <li><span class="caret">Támadó</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/e/3.png">Falra szerelt impulzus
-                                                        energiafegyver</li>
-                                                    <li><img src="imgs/treeview/enemies/e/4.png">Tornyra szerelt
-                                                        sorozat-energiafegyver</li>
-                                                    <li><img src="imgs/treeview/enemies/e/5.png">Tornyra szerelt
-                                                        időzített robbanófejes-tracker</li>
-                                                    <li><img src="imgs/treeview/enemies/e/6.png">Ballisztikus okos
-                                                        követőrakéta állványzat</li>
-                                                    <li><img src="imgs/treeview/enemies/e/7.png">Tesla tekercs</li>
-                                                    <li><img src="imgs/treeview/enemies/e/8.png">Alletary</li>
-                                                    <li><img src="imgs/treeview/enemies/e/9.png">Cluster</li>
-                                                    <li><img src="imgs/treeview/enemies/e/10.png">Sorozatrakétás</li>
-                                                    <li><img src="imgs/treeview/enemies/e/11.png">Megacannon</li>
-                                                </ul>
+                                            <li><img src="imgs/treeview/player/23.png">Dzsip karosszéria</li>
+                                            <li><img src="imgs/treeview/player/24.png" style="width: 25px;">Nagy
+                                                terepjáró
+                                                karosszéria <label>beta</label></li>
+                                            <li><img src="imgs/treeview/player/25.png">Közepes tank karosszéria
+                                                <label>alfa</label>
+                                            </li>
+                                            <li><img src="imgs/treeview/player/26.png">Nehéz tank karosszéria</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Építkezés</span>
+                                <ul class="nested">
+                                    <li><span class="caret">Termelők</span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/buildings/0.png">Olajkút</li>
+                                            <li><img src="imgs/treeview/buildings/1.png">Bánya</li>
+                                            <li><img src="imgs/treeview/buildings/2.png">Erőmű</li>
+                                            <li><img src="imgs/treeview/buildings/3.png">Gyár</li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Elektronika <label>alfa</label></span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/buildings/4.png">Vezeték</li>
+                                            <li><img src="imgs/treeview/buildings/5.png">Generátor</li>
+                                            <li><img src="imgs/treeview/buildings/6.png">LH Transzfomátor</li>
+                                            <li><img src="imgs/treeview/buildings/7.png">HL Transzformátor</li>
+                                            <li><img src="imgs/treeview/buildings/8.png">Elem</li>
+                                            <li><img src="imgs/treeview/buildings/9.png">Kapcsoló</li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Védelem</span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/buildings/10.png">Fal</li>
+                                            <li><img src="imgs/treeview/buildings/11.png">Falra szerelt gépfegyver</li>
+                                            <li><img src="imgs/treeview/buildings/12.png">Bunker</li>
+                                            <li><img src="imgs/treeview/buildings/13.png">Ballisztikus rakéta állványzat
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><span class="caret">Egységek</span>
+                                    <li><span class="caret">Egyéb</span>
                                         <ul class="nested">
-                                            <li><img src="imgs/treeview/enemies/e/12.png">Építész</li>
-                                            <li><img src="imgs/treeview/enemies/e/13.png"
-                                                    style="width: 64px;height: 64px;">Szállító</li>
-                                            <li><img src="imgs/treeview/enemies/e/14.png">Felderítő</li>
-                                            <li><span class="caret">Támadó</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/e/15.png">Drone</li>
-                                                    <li><img src="imgs/treeview/enemies/e/16.png"
-                                                            style="width: 24px;">VTOL</li>
-                                                    <li><img src="imgs/treeview/enemies/e/17.png">Defender</li>
-                                                    <li><img src="imgs/treeview/enemies/e/18.png">Minigun-os</li>
-                                                    <li><img src="imgs/treeview/enemies/e/19.png">Gépfegyveres</li>
-                                                    <li><img src="imgs/treeview/enemies/e/20.png">Shotgun-os</li>
-                                                    <li><img src="imgs/treeview/enemies/e/21.png">Lézer robot</li>
-                                                </ul>
+                                            <li><img src="imgs/treeview/buildings/14.png">Labor <label>nem
+                                                    működik</label></li>
+                                            <li><img src="imgs/treeview/buildings/15.png">Javító üzem</li>
+                                            <li><img src="imgs/treeview/buildings/16.png">Gyár fejlesztés
+                                                <label>alfa</label>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><span class="caret">[ME]</span>
+                            <li><span class="caret">Gyártás</span>
                                 <ul class="nested">
-                                    <li><span class="caret">Épületek</span>
+                                    <li>Építő</li>
+                                    <li><span class="caret">Támadó harckocsik</span>
                                         <ul class="nested">
-                                            <li><span class="caret">Bázis</span>
+                                            <li>Antirocket</li>
+                                            <li>Shotgun-os terepjáró</li>
+                                            <li>Kisrakéta indítós</li>
+                                            <li>Gépfegyveres APC</li>
+                                            <li>Tank</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">Ellenségek</span>
+                                <ul class="nested">
+                                    <li><span class="caret">[E]</span>
+                                        <ul class="nested">
+                                            <li><span class="caret">Épületek</span>
                                                 <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/me/0.png"
-                                                            style="width: 16px;height: 16px;">Gyár</li>
-                                                    <li><img src="imgs/treeview/enemies/me/1.png"
-                                                            style="width: 16px;height: 16px;">Szervízüzem</li>
-                                                    <li><img src="imgs/treeview/enemies/me/2.png">Fal</li>
-                                                    <li><img src="imgs/treeview/enemies/me/3.png">Lakóház</li>
-                                                    <li><img src="imgs/treeview/enemies/me/4.png"
-                                                            style="width: 12px;height: 12px;">Olajtank</li>
-                                                    <li><img src="imgs/treeview/enemies/me/5.png">Olajkút</li>
-                                                    <li><img src="imgs/treeview/enemies/me/6.png">Sziréna</li>
-                                                    <li><img src="imgs/treeview/enemies/me/7.png">Lámpa</li>
-                                                    <li><img src="imgs/treeview/enemies/me/8.png">Radar</li>
-                                                    <li><img src="imgs/treeview/enemies/me/9.png">Helikopter fe- és
-                                                        leszálló</li>
-                                                    <li><img src="imgs/treeview/enemies/me/10.png"
-                                                            style="width: 32px;height: 32px;">Bunker</li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="caret">Támadó</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/me/11.png">Gépfegyveres őrtorony
+                                                    <li><span class="caret">Bázis</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/e/0.png">Gyár</li>
+                                                            <li><img src="imgs/treeview/enemies/e/1.png"
+                                                                    style="width: 24px;height: 24px;">VTOL gyár</li>
+                                                            <li><img src="imgs/treeview/enemies/e/2.png">Fal</li>
+                                                        </ul>
                                                     </li>
-                                                    <li><img src="imgs/treeview/enemies/me/12.png">Páncéltörő ágyú</li>
-                                                    <li><img src="imgs/treeview/enemies/me/13.png"
-                                                            style="width: 8px;height: 8px;">Akna</li>
-                                                    <li><img src="imgs/treeview/enemies/me/14.png">Rakéta állványzat
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/e/3.png">Falra szerelt
+                                                                impulzus
+                                                                energiafegyver</li>
+                                                            <li><img src="imgs/treeview/enemies/e/4.png">Tornyra szerelt
+                                                                sorozat-energiafegyver</li>
+                                                            <li><img src="imgs/treeview/enemies/e/5.png">Tornyra szerelt
+                                                                időzített robbanófejes-tracker</li>
+                                                            <li><img src="imgs/treeview/enemies/e/6.png">Ballisztikus
+                                                                okos
+                                                                követőrakéta állványzat</li>
+                                                            <li><img src="imgs/treeview/enemies/e/7.png">Tesla tekercs
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/e/8.png">Alletary</li>
+                                                            <li><img src="imgs/treeview/enemies/e/9.png">Cluster</li>
+                                                            <li><img src="imgs/treeview/enemies/e/10.png">Sorozatrakétás
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/e/11.png">Megacannon
+                                                            </li>
+                                                        </ul>
                                                     </li>
-                                                    <li><img src="imgs/treeview/enemies/me/15.png">Nagy hatótávú
-                                                        gránátvető</li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="caret">Egységek</span>
+                                                <ul class="nested">
+                                                    <li><img src="imgs/treeview/enemies/e/12.png">Építész</li>
+                                                    <li><img src="imgs/treeview/enemies/e/13.png"
+                                                            style="width: 64px;height: 64px;">Szállító</li>
+                                                    <li><img src="imgs/treeview/enemies/e/14.png">Felderítő</li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/e/15.png">Drone</li>
+                                                            <li><img src="imgs/treeview/enemies/e/16.png"
+                                                                    style="width: 24px;">VTOL <label>alfa</label></li>
+                                                            <li><img src="imgs/treeview/enemies/e/17.png">Defender</li>
+                                                            <li><img src="imgs/treeview/enemies/e/18.png">Minigun-os
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/e/19.png">Gépfegyveres
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/e/20.png">Shotgun-os
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/e/21.png">Lézer robot
+                                                            </li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><span class="caret">Egységek</span>
+                                    <li><span class="caret">[ME]</span>
                                         <ul class="nested">
-                                            <li><img src="imgs/treeview/enemies/me/16.png">Szervízkocsi</li>
-                                            <li><img src="imgs/treeview/enemies/me/17.png"
-                                                    style="width: 14px;height: 4px;">Kamion</li>
-                                            <li><img src="imgs/treeview/enemies/me/18.png">Építész</li>
-                                            <li><img src="imgs/treeview/enemies/me/19.png"
-                                                    style="width: 24px;height: 16px;">Szállító</li>
-                                            <li><img src="imgs/treeview/enemies/me/20.png">Terepjáró</li>
-                                            <li><img src="imgs/treeview/enemies/me/21.png" style="width: 24px;">Nagy
-                                                helikopter</li>
-                                            <li><img src="imgs/treeview/enemies/me/22.png"
-                                                    style="width: 32px;height: 16px;">Vonat</li>
-                                            <li><span class="caret">Támadó</span>
+                                            <li><span class="caret">Épületek</span>
                                                 <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/me/23.png">Tank</li>
-                                                    <li><img src="imgs/treeview/enemies/me/24.png">APC</li>
-                                                    <li><img src="imgs/treeview/enemies/me/25.png">Gépfegyveres
-                                                        terepjáró</li>
-                                                    <li><img src="imgs/treeview/enemies/me/26.png">Gépfegyveres
+                                                    <li><span class="caret">Bázis</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/me/0.png"
+                                                                    style="width: 16px;height: 16px;">Gyár</li>
+                                                            <li><img src="imgs/treeview/enemies/me/1.png"
+                                                                    style="width: 16px;height: 16px;">Szervízüzem</li>
+                                                            <li><img src="imgs/treeview/enemies/me/2.png">Fal</li>
+                                                            <li><img src="imgs/treeview/enemies/me/3.png">Lakóház</li>
+                                                            <li><img src="imgs/treeview/enemies/me/4.png"
+                                                                    style="width: 12px;height: 12px;">Olajtank</li>
+                                                            <li><img src="imgs/treeview/enemies/me/5.png">Olajkút</li>
+                                                            <li><img src="imgs/treeview/enemies/me/6.png">Sziréna</li>
+                                                            <li><img src="imgs/treeview/enemies/me/7.png">Lámpa</li>
+                                                            <li><img src="imgs/treeview/enemies/me/8.png">Radar</li>
+                                                            <li><img src="imgs/treeview/enemies/me/9.png">Helikopter fe-
+                                                                és
+                                                                leszálló</li>
+                                                            <li><img src="imgs/treeview/enemies/me/10.png"
+                                                                    style="width: 32px;height: 32px;">Bunker</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/me/11.png">Gépfegyveres
+                                                                őrtorony
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/me/12.png">Páncéltörő
+                                                                ágyú</li>
+                                                            <li><img src="imgs/treeview/enemies/me/13.png"
+                                                                    style="width: 8px;height: 8px;">Akna</li>
+                                                            <li><img src="imgs/treeview/enemies/me/14.png">Rakéta
+                                                                állványzat
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/me/15.png">Nagy hatótávú
+                                                                gránátvető</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="caret">Egységek</span>
+                                                <ul class="nested">
+                                                    <li><img src="imgs/treeview/enemies/me/16.png">Szervízkocsi</li>
+                                                    <li><img src="imgs/treeview/enemies/me/17.png"
+                                                            style="width: 14px;height: 4px;">Kamion</li>
+                                                    <li><img src="imgs/treeview/enemies/me/18.png">Építész</li>
+                                                    <li><img src="imgs/treeview/enemies/me/19.png"
+                                                            style="width: 24px;height: 16px;">Szállító
+                                                        <label>beta</label>
+                                                    </li>
+                                                    <li><img src="imgs/treeview/enemies/me/20.png">Terepjáró</li>
+                                                    <li><img src="imgs/treeview/enemies/me/21.png"
+                                                            style="width: 24px;">Nagy
                                                         helikopter</li>
-                                                    <li><img src="imgs/treeview/enemies/me/27.png"
-                                                            style="width: 2px;height: 1px;">Ember</li>
+                                                    <li><img src="imgs/treeview/enemies/me/22.png"
+                                                            style="width: 32px;height: 16px;">Vonat <label>beta</label>
+                                                    </li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/me/23.png">Tank</li>
+                                                            <li><img src="imgs/treeview/enemies/me/24.png">APC</li>
+                                                            <li><img src="imgs/treeview/enemies/me/25.png">Gépfegyveres
+                                                                terepjáró</li>
+                                                            <li><img src="imgs/treeview/enemies/me/26.png">Gépfegyveres
+                                                                helikopter</li>
+                                                            <li><img src="imgs/treeview/enemies/me/27.png"
+                                                                    style="width: 2px;height: 1px;">Ember</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">[McE]</span>
+                                        <ul class="nested">
+                                            <li><span class="caret">Épületek</span>
+                                                <ul class="nested">
+                                                    <li><span class="caret">Bázis</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/0.png"
+                                                                    style="width: 32px;height: 32px;">Bázis</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/1.png">Rádiótorony
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/2.png">Fal</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/3.png">Gépfegyveres
+                                                                torony
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/4.png">Gépfegyveres
+                                                                bódé
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="caret">Egységek</span>
+                                                <ul class="nested">
+                                                    <li><img src="imgs/treeview/enemies/mce/5.png">Terepjáró</li>
+                                                    <li><img src="imgs/treeview/enemies/mce/6.png">Kamion</li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/7.png">Ágyús
+                                                                iskolabusz</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/8.png">Gépfegyveres
+                                                                homokfutó</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/9.png">Shotgun-os
+                                                                homokfutó
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/10.png">Lángszórós
+                                                                furgon <label>beta</label>
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/11.png">Kamikaze
+                                                                <label>beta</label>
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/12.png"
+                                                                    style="width: 2px;height: 1px;">Ember</li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><span class="caret">[McE]</span>
+                            <li><span class="caret">Környezet</span>
                                 <ul class="nested">
-                                    <li><span class="caret">Épületek</span>
+                                    <li><span class="caret">Állatok</span>
                                         <ul class="nested">
-                                            <li><span class="caret">Bázis</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/mce/0.png"
-                                                            style="width: 32px;height: 32px;">Bázis</li>
-                                                    <li><img src="imgs/treeview/enemies/mce/1.png">Rádiótorony</li>
-                                                    <li><img src="imgs/treeview/enemies/mce/2.png">Fal</li>
-                                                </ul>
-                                            </li>
-                                            <li><span class="caret">Támadó</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/mce/3.png">Gépfegyveres torony
-                                                    </li>
-                                                    <li><img src="imgs/treeview/enemies/mce/4.png">Gépfegyveres bódé
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <li><img src="imgs/treeview/enviroment/0.png">Mutáns béka</li>
+                                            <li><img src="imgs/treeview/enviroment/1.png">Köpködő</li>
                                         </ul>
                                     </li>
-                                    <li><span class="caret">Egységek</span>
+                                    <li><span class="caret">Egyéb</span>
                                         <ul class="nested">
-                                            <li><img src="imgs/treeview/enemies/mce/5.png">Terepjáró</li>
-                                            <li><img src="imgs/treeview/enemies/mce/6.png">Kamion</li>
-                                            <li><span class="caret">Támadó</span>
-                                                <ul class="nested">
-                                                    <li><img src="imgs/treeview/enemies/mce/7.png">Ágyús iskolabusz</li>
-                                                    <li><img src="imgs/treeview/enemies/mce/8.png">Gépfegyveres
-                                                        homokfutó</li>
-                                                    <li><img src="imgs/treeview/enemies/mce/9.png">Shotgun-os homokfutó
-                                                    </li>
-                                                    <li><img src="imgs/treeview/enemies/mce/10.png">Lángszórós furgon
-                                                    </li>
-                                                    <li><img src="imgs/treeview/enemies/mce/11.png">Kamikaze</li>
-                                                    <li><img src="imgs/treeview/enemies/mce/12.png"
-                                                            style="width: 2px;height: 1px;">Ember</li>
-                                                </ul>
-                                            </li>
+                                            <li><img src="imgs/treeview/enviroment/2.png">Víz</li>
+                                            <li><img src="imgs/treeview/enviroment/3.png">Szikla</li>
+                                            <li><img src="imgs/treeview/enviroment/4.png">Cliff</li>
+                                            <li><img src="imgs/treeview/enviroment/5.png"
+                                                    style="width: 10px;height: 5px;">Egyéb
+                                                környezet objektumok</li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    <li><span class="caret">Környezet</span>
+                    <li><span class="caret">Nothing 2 <label>alfa</label></span>
                         <ul class="nested">
-                            <li><span class="caret">Állatok</span>
+                            <li><span class="caret">Játékos testreszabás <label>alfa</label></span>
                                 <ul class="nested">
-                                    <li><img src="imgs/treeview/enviroment/0.png">Mutáns béka</li>
-                                    <li><img src="imgs/treeview/enviroment/1.png">Köpködő</li>
+                                    <li><span class="caret">Fegyverek</span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/player/4.png">Ágyú</li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="caret">Karosszériák</span>
+                                        <ul class="nested">
+                                            <li><img src="imgs/treeview/player/26.png">Nehéz tank karosszéria</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><span class="caret">Egyéb</span>
+                            <li><span class="caret">Ellenségek <label>alfa</label></span>
                                 <ul class="nested">
-                                    <li><img src="imgs/treeview/enviroment/2.png">Víz</li>
-                                    <li><img src="imgs/treeview/enviroment/3.png">Szikla</li>
-                                    <li><img src="imgs/treeview/enviroment/4.png">Cliff</li>
-                                    <li><img src="imgs/treeview/enviroment/5.png" style="width: 10px;height: 5px;">Egyéb
-                                        környezet objektumok</li>
+                                    <li><span class="caret">[McE]</span>
+                                        <ul class="nested">
+                                            <li><span class="caret">Épületek</span>
+                                                <ul class="nested">
+                                                    <li><span class="caret">Bázis</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/0.png"
+                                                                    style="width: 32px;height: 32px;">Bázis</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/3.png">Gépfegyveres
+                                                                torony <label>alfa</label>
+                                                            </li>
+                                                            <li><img src="imgs/treeview/enemies/mce/4.png">Gépfegyveres
+                                                                bódé <label>alfa</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="caret">Egységek</span>
+                                                <ul class="nested">
+                                                    <li><img src="imgs/treeview/enemies/mce/.png">Kamion
+                                                        <label>alfa</label>
+                                                    </li>
+                                                    <li><span class="caret">Támadó</span>
+                                                        <ul class="nested">
+                                                            <li><img src="imgs/treeview/enemies/mce/7.png">Ágyús
+                                                                iskolabusz</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/8.png">Gépfegyveres
+                                                                homokfutó</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/.png">Minigun-os
+                                                                terepjáró</li>
+                                                            <li><img src="imgs/treeview/enemies/mce/12.png"
+                                                                    style="width: 2px;height: 1px;">Ember
+                                                                <label>alfa</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
