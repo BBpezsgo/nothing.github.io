@@ -327,13 +327,10 @@
             flex-wrap: wrap;
             -ms-flex: 70%;
             flex: 70%;
-            left: 20vw;
-            top: 50px;
-            right: 0px;
-            bottom: 0px;
+            padding-left: 20vw;
+            padding-top: 32px;
             padding-right: 15px;
-
-            position: fixed;
+            max-height: 70vw;
             overflow: auto;
         }
 
@@ -445,7 +442,7 @@
 
 <body>
     <header>
-        <div class="box"></div>
+        <div class="box" onclick="goToMobile()"></div>
         <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
             <b>Nothing</b>
         </div>
@@ -965,7 +962,14 @@
 
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
+            goToMobile()
+        }
+
+        function goToMobile() {
             window.location.href = "mobil.html";
+        }
+        function goToPC() {
+            window.location.href = "index.html";
         }
     </script>
 </body>
