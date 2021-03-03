@@ -442,7 +442,7 @@
 
 <body>
     <header>
-        <div class="box" onclick="goToMobile()"></div>
+        <div class="box"></div>
         <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
             <b>Nothing</b>
         </div>
@@ -962,10 +962,6 @@
 
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
-            goToMobile()
-        }
-
-        function goToMobile() {
             window.location.href = "mobil.html";
         }
     </script>
