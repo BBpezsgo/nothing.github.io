@@ -321,16 +321,19 @@
         /*#endregion */
         /*#region Main*/
         section {
-            display: -ms-flexbox;
             display: flex;
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
             -ms-flex: 70%;
             flex: 70%;
-            background-color: white;
-            padding: 20px;
-            background: #c4985e;
-            padding-left: 270px;
+            left: 20vw;
+            top: 50px;
+            right: 0px;
+            bottom: 0px;
+            padding-right: 15px;
+
+            position: fixed;
+            overflow: auto;
         }
 
         .mainimg {
@@ -407,14 +410,15 @@
         footer {
             padding: 10px;
             text-align: center;
+            width: 100%;
             color: #3d2e1a;
             font-size: 15px;
+            bottom: 0;
+            position: fixed;
         }
 
         @media screen and (max-width: 700px) {
-            .row {
-                flex-direction: column;
-            }
+
         }
 
         .alpha {
@@ -506,7 +510,7 @@
                             </tr>
                             <tr>
                                 <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Nothing 2:</th>
-                                <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 02. 27.</th>
+                                <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 03. 03.</th>
                             </tr>
                         </table>
                         <h3 style="color: black;">Hírek</h3>
@@ -515,7 +519,7 @@
                                 <b>Nothing</b><br><br>
                                 Új fegyver: kicsi ágyú<br><br>
                                 Követőrakéta fejlesztés: okosabb célkereső<br><br>
-                                [McE] Lángszórós furgon hobijavítás<br><br>
+                                [McE] Lángszórós furgon hibajavítás<br><br>
                                 Térkép: robbanások, lövedékek<br><br>
                                 Foszforágyú hibajavítás
                             </div>
@@ -524,7 +528,6 @@
                 </th>
             </tr>
         </table>
-
 
         <article>
             <img src="imgs/image.png" class="mainimg">
@@ -929,10 +932,6 @@
             </form>
         </article>
     </section>
-
-    <footer>
-        <h2>A játék még nincs kész! Hibák előfordulhatnak benne.</h2>
-    </footer>
 
     <script>
         function myFunction() {
