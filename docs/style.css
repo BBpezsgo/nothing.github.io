@@ -179,6 +179,14 @@ header {
         opacity: 0.9;
     }
 
+.versionOnHeader {
+    font-weight: lighter;
+    color: gray;
+    position: fixed;
+    left: 116px;
+    top: 16px;
+}
+
 /*#region News*/
 
 .Newsection {
