@@ -17,10 +17,6 @@
     background: #868686;
 }
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #b1cad8;
-    }
-
     ::-webkit-scrollbar-thumb:active {
         background: #79b7ff;
     }
@@ -101,12 +97,8 @@ header a.menuButton {
     width: 200px;
 }
 
-.SimpleButton:hover {
-    border-left: 3px solid #0b7dda;
-}
-
 .SimpleButton:active {
-    border-left: 3px solid #0a6dbe;
+    border-left: 3px solid #0b7dda;
 }
 
 /*#endregion */
@@ -116,10 +108,6 @@ header a.menuButton {
 .History a {
     color: #bebebe;
 }
-
-    .History a:hover {
-        color: #b1cad8;
-    }
 
     .History a:active {
         color: #79b7ff;
@@ -163,16 +151,6 @@ header a.menuButton {
     transition-duration: 0.2s;
 }
 
-    .Emailbutton:hover {
-        background-color: #e97363;
-        opacity: 1;
-    }
-    
-    .Discordbutton:hover {
-        background-color: #458ada;
-        opacity: 1;
-    }
-
     .Emailbutton:active {
         background-color: #df9990;
         opacity: 1;
@@ -212,6 +190,8 @@ body {
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
     color: #bebebe;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 .MobilMain {
