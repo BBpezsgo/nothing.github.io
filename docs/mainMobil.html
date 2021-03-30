@@ -30,7 +30,19 @@
         <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
             <b>Nothing</b>
         </div>
+        <a href="javascript:void(0);" class="menuButton" onclick="showMenu()">
+          <i class="fa fa-bars"></i>
+        </a>
     </header>
+
+        <div id="mobilMenu">
+            <button class="SimpleButtonActive">
+                Főoldal
+            </button><br>
+            <button class="SimpleButton">
+                Hírek
+            </button>
+        </div>
 
     <div class="MobilMain">
         <form>
@@ -99,6 +111,15 @@
                 this.parentElement.querySelector(".nested").classList.toggle("active");
                 this.classList.toggle("caret-down");
             });
+        }
+
+        function showMenu() {
+        var x = document.getElementById("mobilMenu");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
         }
     </script>
 </body>
