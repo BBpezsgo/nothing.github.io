@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hu">
+    
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="A Nothing weboldala, ahonnan letöltheted a játékot. Ide rakom ki a frissítéseket, híreket is.">
+    <meta name="author" content="BB">
+    <meta property="og:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+    <meta name="twitter:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
+    <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
+    <link rel="icon" href="/imgs/icons/ico64.png" sizes="64x64">
+    <link rel="icon" href="/imgs/icons/ico128.png" sizes="128x128">
+    <link rel="icon" href="/imgs/icons/ico256.png" sizes="256x256">
+    <link rel="icon" href="/imgs/icons/ico518.png" sizes="518x518">
+    <meta content="/imgs/icons/ico128.png" itemprop="image">
+    <link rel="stylesheet" type="text/css" href="styleMainMobil.css">
+    <title>
+        Nothing
+    </title>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="box"></div>
+        <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
+            <b>Nothing</b>
+        </div>
+    </header>
+
+    <div class="MobilMain">
+        <form>
+            <h3 style="color: #bebebe;">Utolsó frissítés</h3>
+            <table>
+                <tr>
+                    <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Weboldal:</th>
+                    <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 03. 30.</th>
+                </tr>
+                <tr>
+                    <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Nothing:</th>
+                    <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 03. 18.</th>
+                </tr>
+                <tr>
+                    <th style="box-shadow: 0px 0px;font-weight: normal; text-align: left;">Nothing II:</th>
+                    <th style="box-shadow: 0px 0px;font-weight: bold; text-align: right;">2021. 03. 28.</th>
+                </tr>
+            </table>
+        </form>
+
+        <form>
+            <div class="History">
+                <h3 style="color: #bebebe;">Készítése</h3>
+                <p style="color: #bebebe;font-weight: normal;">
+                    Az első verziót a <a href="https://www.gamemaker8.com" target="_blank">Game Maker 8</a>
+                    programban készítettem, de mível kicsik voltak benne a határok, ezért elkezdtem a Nothing 2-t
+                    készíteni, de ezt már a <a href="https://unity.com" target="_blank">Unity</a>-ben.
+                </p>
+            </div>
+        </form>
+
+        <form>
+            <h3 style="color: #bebebe;">Kapcsolat</h3>
+
+            <a href="mailto:bazsi5fel@gmail.com" class="Emailbutton SocialButton">
+                E-mail
+            </a>
+            <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="Discordbutton SocialButton">
+                Discord szerverem
+            </a>
+        </form>
+
+        <form>
+            <h3 style="color: #bebebe;">Letöltés</h3>
+
+            <label class="NodownloadButton">
+                A letöltés csak számítógépen érhető el!
+            </label>
+        </form>
+
+        <form>
+            <h2>Leírás</h2>
+            Ez egy stragégiai játék. Van lehetőség benne építkezésre, és egységek gyártására is. A játék
+            fő célja,
+            hogy legyőzzük a fő ellenségünket, ami egyértelmű, hogy mi; az [E].
+            Ezek mellett vannak egyéb ellenségek is, mint például a [ME], vagy az [McE].
+        </form>
+    </div>
+
+    <script>
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+    </script>
+</body>
+</html>
