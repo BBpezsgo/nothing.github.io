@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="A Nothing weboldala, ahonnan letöltheted a játékot. Ide rakom ki a frissítéseket, híreket is.">
+    <meta name="author" content="BB">
+    <meta property="og:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+    <meta name="twitter:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
+    <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
+    <link rel="icon" href="/imgs/icons/ico64.png" sizes="64x64">
+    <link rel="icon" href="/imgs/icons/ico128.png" sizes="128x128">
+    <link rel="icon" href="/imgs/icons/ico256.png" sizes="256x256">
+    <link rel="icon" href="/imgs/icons/ico518.png" sizes="518x518">
+    <meta content="/imgs/icons/ico128.png" itemprop="image">
+    <link rel="stylesheet" type="text/css" href="styleMain.css">
+    <title>
+        Nothing
+    </title>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        function Download() {
+            window.open("https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!354&parId=6AEB0DA011C539BF!362&authkey=!AHHviMAHSFAXhaY");
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="box"></div>
+        <div style="color: white;position: fixed; margin-top: 15px; margin-left: 50px;">
+            <b>Nothing</b>
+        </div>
+        <div class="versionOnHeader">0.2.17.1</div>
+        <button class="SimpleButtonActive">
+            Főoldal
+        </button>
+        <button class="SimpleButton" onclick='window.location.href = "news.html";'>
+            Hírek
+        </button>
+    </header>
+
+    <div class="PcMain">
+        <table class="PcSidebar">
+            <tr>
+                <th>
+                    <div class="History">
+                        <h3 style="color: #bebebe;">Készítése</h3>
+                        <p style="color: #bebebe;font-weight: normal;">
+                            Az első verziót a
+                            <a href="https://www.gamemaker8.com" target="_blank">Game Maker 8</a> programban készítettem,
+                            de mível kicsik voltak benne a határok, ezért elkezdtem a Nothing 2-t készíteni, de ezt már a
+                            <a href="https://unity.com" target="_blank">Unity</a>-ben.
+                        </p>
+                    </div>
+                    <h3 style="color: #bebebe;">Kapcsolat</h3>
+
+                    <a href="mailto:bazsi5fel@gmail.com" class="Emailbutton SocialButton">
+                        E-mail
+                    </a>
+                    <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="Discordbutton SocialButton">
+                        Discord szerverem
+                    </a>
+
+                    <h3 style="color: #bebebe;">Letöltés</h3>
+                    <h4 style="color: #bebebe;">Nothing</h4>
+                    <a class="DownloadButtonOnSidebar"
+                    href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!354&parId=6AEB0DA011C539BF!362&authkey=!AHHviMAHSFAXhaY" target="_blank">
+                        Nothing
+                    </a>
+                    <a class="DownloadButtonOnSidebarSmall"
+                    href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!837&parId=6AEB0DA011C539BF!836&authkey=!AGyiWk_ZQ_uNtJM" target="_blank">
+                        Frissítő
+                    </a>
+                    <a class="DownloadButtonOnSidebarSmall"
+                    href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!355&parId=6AEB0DA011C539BF!362&authkey=!AHUIORiS8_PeR_M" target="_blank">
+                        main.mp3
+                    </a>
+                    <h4 style="color: #bebebe;">Nothing II</h4>
+                    <a class="DownloadButtonOnSidebar"
+                    href="https://onedrive.live.com/redir.aspx?cid=6aeb0da011c539bf&resid=6AEB0DA011C539BF!527&parId=6AEB0DA011C539BF!101&authkey=!AIEQvNSpk7cjwZM" target="_blank">
+                        Nothing II
+                    </a>
+                    <a class="DownloadButtonOnSidebarSmall"
+                    href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%21841&authkey=AB8SwuOTI0rXtcw" target="_blank">
+                        Frissítő
+                    </a>
+                </th>
+            </tr>
+        </table>
+
+        <article>
+            <img src="imgs/image.png" class="PcMainImg">
+            <form>
+                <h2>Leírás</h2>
+                Ez egy stragégiai játék. Van lehetőség benne építkezésre, és egységek gyártására is. A játék fő célja,
+                hogy legyőzzük a fő ellenségünket, ami egyértelmű, hogy mi; az [E].
+                Ezek mellett vannak egyéb ellenségek is, mint például a [ME], vagy az [McE].
+            </form>
+        </article>
+    </div>
+
+    <script>
+        function OpenDropdownMenu() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+
+
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            window.location.href = "mainMobil.html";
+        }
+    </script>
+</body>
+
+</html>
