@@ -6,7 +6,7 @@
 
 /*#region Scrollbar*/
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 20px;
 }
 
 ::-webkit-scrollbar-track {
@@ -47,7 +47,7 @@
 /*#region Header*/
 
 header {
-    background-color: #333;
+    background-color: #333333;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -56,7 +56,7 @@ header {
 }
 
 header a.menuButton {
-    background: black;
+    background: #333333;
     display: block;
     color: white;
     float: right;
@@ -192,6 +192,12 @@ body {
     color: #bebebe;
 
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .MobilMain {
