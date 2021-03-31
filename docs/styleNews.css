@@ -152,6 +152,60 @@ header {
         padding: 5px;
     }
 
+
+    .PcSidebar h4 {
+        text-align: left;
+        padding-left: 5px;
+    }
+
+/*#region Download Button*/
+
+.DownloadButtonOnSidebar {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    background-color: #1dc08f;
+    color: white;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.2s;
+}
+
+.DownloadButtonOnSidebar:hover, .DownloadButtonOnSidebarSmall:hover {
+    background-color: #39cca0;
+    opacity: 1;
+}
+
+.DownloadButtonOnSidebar:active, .DownloadButtonOnSidebarSmall:active {
+    background-color: #92ecd1;
+    opacity: 1;
+}
+
+.DownloadButtonOnSidebarSmall {
+    width: 95%;
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    margin: 3px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 15px;
+    text-decoration: none;
+    background-color: #1dc08f;
+    color: white;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.2s;
+}
+
+/*#endregion */
+
 /*#endregion */
 
 /*#region Main*/
