@@ -56,27 +56,69 @@
     padding-bottom: 5px;
     font-weight: normal;
     text-align: left;
-    background-color: #474747;
-    box-shadow: #000000 5px 5px;
+    margin-bottom: 15px;
+    background-color: #313131;
     padding: 5px;
     margin-bottom: 15px;
+    border-radius: 6px;
+    border-color: #575757;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .New li {
     list-style: none;
 }
 
-.New li:before {
-    content: "\2022";
-    color: #686868;
-    font-weight: bold;
+.NewElementAdd:before {
+    content: "➕";
     display: inline-block;
-    width: 1em;
+    width: 2em;
+    margin-left: -1em;
+}
+.NewElementFix:before {
+    content: "✔️";
+    display: inline-block;
+    width: 2em;
+    margin-left: -1em;
+}
+.NewElementRemove:before {
+    content: "➖";
+    display: inline-block;
+    width: 2em;
+    margin-left: -1em;
+}
+.NewElementWarning:before {
+    content: "⚠";
+    display: inline-block;
+    width: 2em;
     margin-left: -1em;
 }
 
 .New b {
     color: #b7c3e7;
+}
+
+.UpdateIcon {
+    width: fit-content;
+    padding: 1px 5px;
+    background-color: #3a3b46;
+    border-radius: 7px;
+    border-color: #69739c;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+}
+
+.NewIcon {
+    width: fit-content;
+    padding: 1px 5px;
+    background-color: #1c5232;
+    border-radius: 7px;
+    border-color: #329b7b;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
 }
 
 /*#endregion */
@@ -146,10 +188,14 @@ header {
     width: 270px;
 }
 
-    .PcSidebar th {
-        box-shadow: #000000 5px 5px;
-        background-color: #474747;
+    .PcSidebarTh {
+        background-color: #313131;
         padding: 5px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border-color: #575757;
+        border-style: solid;
+        border-width: 1px;
     }
 
 
@@ -213,7 +259,7 @@ header {
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background: #555555;
+    background: black;
     cursor: default;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
