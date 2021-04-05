@@ -126,9 +126,13 @@ header {
 }
 
     .PcSidebar th {
-        box-shadow: #000000 5px 5px;
-        background-color: #474747;
+        background-color: #313131;
         padding: 5px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border-color: #575757;
+        border-style: solid;
+        border-width: 1px;
     }
 
     .PcSidebar h4 {
@@ -240,15 +244,14 @@ header {
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background: #555555;
+    background: black;
     cursor: default;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     color: #bebebe;
 }
 
@@ -269,14 +272,21 @@ body {
     width: 100%;
     margin-top: 25px;
     margin-bottom: 10px;
-    box-shadow: #000000 5px 5px;
+    padding: 1px;
+    border-radius: 6px;
+    border-color: #575757;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .PcMain form {
-    box-shadow: #000000 5px 5px;
-    background-color: #474747;
+    background-color: #313131;
     padding: 5px;
     margin-bottom: 15px;
+    border-radius: 6px;
+    border-color: #575757;
+    border-style: solid;
+    border-width: 1px;
 }
 
 /*#endregion */
