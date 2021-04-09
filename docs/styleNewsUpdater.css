@@ -3,7 +3,7 @@
 /*#region News*/
 
 .New {
-    width: 100%;
+    width: 95%;
     padding-top: 5px;
     padding-bottom: 5px;
     font-weight: normal;
@@ -91,8 +91,16 @@ body {
                                   supported by Chrome and Opera */
     overflow: hidden;
     color: #bebebe;
-    width: 284px;
     font-size: 0.6em;
+    width: 284px;
+    height: 100%;
+}
+
+html {
+    width: 284px;
+    height: 326px;
+    overflow: hidden;
+    background-color: rgb(255, 0, 255);
 }
 
 /*#endregion */
