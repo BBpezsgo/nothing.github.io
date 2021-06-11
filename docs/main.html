@@ -55,26 +55,57 @@
                             <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a><br>
                         </p>
                     </div>
-                    <h3 style="color: #bebebe;">Kapcsolat</h3>
 
-                    <a href="mailto:bazsi5fel@gmail.com" class="Emailbutton SocialButton">
-                        E-mail
-                    </a>
-                    <a href="https://discord.gg/JSvA9eS9nk" target="_blank" class="Discordbutton SocialButton">
-                        Discord szerverem
-                    </a>
+                    <br><br>
 
-                    <h3 style="color: #bebebe;">Letöltés</h3>
-                    <a class="DownloadButtonOnSidebar"
-                    href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%21841&authkey=AB8SwuOTI0rXtcw" target="_blank">
-                        Nothing II
-                    </a>
+                    <div class="Emailbutton SocialButton">
+                        <a href="mailto:bazsi5fel@gmail.com">
+                            <span>E-mail</span>
+                        </a>
+                    </div>
+                    <div class="Discordbutton SocialButton">
+                        <a href="https://discord.gg/JSvA9eS9nk" target="_blank">
+                            <span>Discord szerverem</span>
+                        </a>
+                    </div>
+                    <div class="DownloadButtonOnSidebar">
+                        <a href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%21841&authkey=AB8SwuOTI0rXtcw" target="_blank">
+                            <span>Letöltés</span>
+                        </a>
+                    </div>
                 </th>
             </tr>
         </table>
 
         <article>
-            <img src="imgs/image.png" class="PcMainImg">
+            
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                <img src="imgs/image0.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <img src="imgs/image1.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides fade">
+                <img src="imgs/image2.png" style="width:100%">
+                </div>
+                
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
             <form>
                 <h2>Leírás</h2>
                 Ez egy stragégiai játék. Van lehetőség benne építkezésre, és egységek gyártására is. A játék fő célja,
@@ -116,6 +147,34 @@
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
             window.location.href = "mainMobil.html";
+        }
+    
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
         }
     </script>
 </body>
