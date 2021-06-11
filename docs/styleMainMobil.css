@@ -115,15 +115,25 @@ header a.menuButton {
     color: white;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.2s;
+    text-align: center;
 }
 
 /*#endregion */
 
 /*#region Social Button*/
 
+.Emailbutton {
+    background-color: #dd4b39;
+    color: white;
+}
+
+.Discordbutton {
+    background-color: #1d69c0;
+    color: white;
+}
+
 .SocialButton {
     width: 100%;
-    padding: 12px;
     border: none;
     border-radius: 4px;
     margin: 5px 0;
@@ -136,26 +146,42 @@ header a.menuButton {
     transition-duration: 0.2s;
 }
 
-    .Emailbutton:active {
-        background-color: #df9990;
-        opacity: 1;
-    }
+    .SocialButton a{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: white;
+        letter-spacing: .5px;
+        text-align: center;
+        position: relative;
+        transition: all .35s;
+      }
+      
+    .SocialButton a span{
+        position: relative;
+      z-index: 2;
+      }
+      
+      .SocialButton a:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: white;
+        transition: all .35s;
+        opacity: .4;
+      }
+      
+      .SocialButton a:active::after{
+        width: 100%;
+      }
     
-    .Discordbutton:active {
-        background-color: #7ea8d8;
-        opacity: 1;
-    }
-
-.Emailbutton {
-    background-color: #dd4b39;
-    color: white;
-}
-
-.Discordbutton {
-    background-color: #1d69c0;
-    color: white;
-}
-
 /*#endregion */
 
 /*#endregion */
