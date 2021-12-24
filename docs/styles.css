@@ -18,7 +18,7 @@ table {
 
 .menuHeader {
     color: #fff;
-    padding: 0px 10px;
+    padding: 0px 10px 0px 40px;
     border-bottom: 5px solid #4f4f4f;
     background-image: url('imgs/menu.png');
     image-rendering: pixelated;
@@ -37,6 +37,7 @@ table {
     padding: 2px 7px;
     font-weight: bold;
     color: #ddd;
+    text-align: center;
 }
 
 .button:active {
