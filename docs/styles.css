@@ -38,6 +38,9 @@ table {
     font-weight: bold;
     color: #ddd;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
 }
 
 .button:active {
@@ -45,4 +48,31 @@ table {
     border-left-color: #494949;
     border-bottom-color: #818181;
     border-right-color: #818181;
+}
+
+
+.button + .disabled {
+    border: 4px solid;
+    border-top-color: #818181;
+    border-left-color: #818181;
+    border-bottom-color: #494949;
+    border-right-color: #494949;
+    margin: 10px;
+    padding: 2px 7px;
+    font-weight: bold;
+    color: #ddd;
+    text-align: center;
+
+    opacity: 50%;
+}
+
+.button:active + .disabled {
+    border-top-color: #818181;
+    border-left-color: #818181;
+    border-bottom-color: #494949;
+    border-right-color: #494949;
+}
+
+a {
+    text-decoration: none;
 }
