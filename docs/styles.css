@@ -9,28 +9,22 @@ body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-table {
-    background: #0000003d;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-}
-
 .menuHeader {
     color: #fff;
-    padding: 0px 10px 0px 10px;
+    padding: 10px 10px 0px 10px;
     image-rendering: pixelated;
     background-size: 256px;
     height: 32px;
     font-weight: bold;
 }
 
-.button {
+.button, button {
+    border: none;
+    user-select: none;
     background: #0000003d;
     margin: 10px;
     padding: 5px 10px 7px 10px;
+    width: calc(100% - 40px);
     font-weight: bold;
     color: #ddd;
     text-align: center;
@@ -41,14 +35,37 @@ table {
     transition-duration: 200ms;
 }
 
-.button:hover {
+.button:hover, button:hover {
     background: #48484860;
 }
 
-.button:active {
+.button:active, button:active {
     background: #C8C8C8a8;
 }
 
 a {
     text-decoration: none;
+    width: 100%;
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}​
+
+.panel, .menu {
+    background: #0000003d;
+    background-color: #0000003d;
+    color: #ddd;
+    transition-duration: 500ms;
+}
+
+.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+.hidden > *, .hidden > * > *, .hidden > * > * > * {
+    pointer-events: none;
 }

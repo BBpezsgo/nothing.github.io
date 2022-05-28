@@ -24,22 +24,117 @@
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault())
     </script>
+    <script src="menuManager.js"></script>
 </head>
 
 <body>
-    <table cellspacing="0" cellpadding="0">
-        <tr>
-            <td class="menuHeader">
-                Nothing
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%212453&authkey=AKaz2TB9zzdgAJg" download>
-                    <div class="button">Letöltés</div>
-                </a>
-            </td>
-    </table>
+    <script type="module" src="app.js"></script>
+
+    <div menu id="loading" class="menu hidden">
+        Loading...
+    </div>
+
+    <div menu id="user" class="hidden" style="width: 100%; height: 100%;">
+        <div id="logged-out" class="menu">
+            <span id="login-error-message" style="color: red; display: none;">Hiba</span>
+            <input type="email" id="email" placeholder="email" /><br>
+            <input type="password" id="password" placeholder="password" />
+            <div class="button" onclick="window.Login()">Bejelentkezés</div>
+            <div class="button" onclick="ShowMenu('downloads')">Vissza</div>
+        </div>
+
+        <div id="logged-in" class="menu">
+            Logged in as <span id="firebase-displayName"></span><br>
+            <span id="firebase-email"></span><br>
+            <span id="firebase-emailVerified"></span><br>
+            <span id="firebase-isAnonymous"></span><br>
+            <span id="firebase-multiFactor"></span><br>
+            <span id="firebase-phoneNumber"></span><br>
+            <span id="firebase-photoURL"></span><br>
+            <span id="firebase-uid"></span><br>
+            <div class="button" onclick="window.Logout()">Kijelentkezés</div>
+            <div class="button" onclick="ShowMenu('downloads')">Vissza</div>
+        </div>
+    </div>
+
+    <div menu id="downloads" class="menu">
+        <div class="menuHeader">
+            Nothing
+        </div>
+
+        <div class="button" id="on-show-user-panel" onclick="ShowMenu('user')">Felhasználó</div>
+            
+        <a download href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%212453&authkey=AKaz2TB9zzdgAJg">
+            <div class="button">Letöltés PC-re</div>
+        </a>
+
+        <a download href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%2153953&authkey=AO3BX-CNR5RWxCI">
+            <div class="button">Letöltés Android-ra</div>
+        </a>
+    </div>
+
+    <!-- Supported OS -->
+    <script>
+        function ResetDownloadButtons() {
+
+            if (getOS() == 'win') {
+                SetButtonsEnabled(true, "platform-windows")
+            } else {
+                SetButtonsEnabled(false, "platform-windows")
+                OpenModal()
+            }
+
+            if (getOS() == 'android') {
+                SetButtonsEnabled(true, "platform-android")
+            } else {
+                SetButtonsEnabled(false, "platform-android")
+            }
+        }
+
+        function SetButtonsEnabled(enabled, tags) {
+            const buttons = document.getElementsByClassName(tags)
+            for (let i = 0; i < buttons.length; i++) {
+                const button = buttons[i];
+                if (enabled == true) {
+                    if (button.classList.contains("disabled")) {
+                        button.classList.remove("disabled")
+                    }
+                } else {
+                    if (button.classList.contains("disabled")) {
+                    } else {
+                        button.classList.add("disabled")
+                    }
+                }
+            }
+        }
+
+        function getOS() {
+            var userAgent = window.navigator.userAgent,
+                platform = window.navigator.platform,
+                macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+                windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+                iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+                os = null;
+
+            if (macosPlatforms.indexOf(platform) !== -1) {
+                os = 'macos';
+            } else if (iosPlatforms.indexOf(platform) !== -1) {
+                os = 'ios';
+            } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                os = 'win';
+            } else if (/Android/.test(userAgent)) {
+                os = 'android';
+            } else if (!os && /Linux/.test(platform)) {
+                os = 'linux';
+            }
+
+            return os;
+        }
+        function detect() {
+            alert(`Device OS is: ${getOS()}`)
+        }
+    </script>
+
 </body>
 
 </html>
