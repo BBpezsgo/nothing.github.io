@@ -9,7 +9,6 @@
     <meta name="author" content="BBpezsgo">
     <meta property="og:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
     <meta name="twitter:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
-    <meta content="/imgs/icons/ico128.png" itemprop="image">
 
     <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
     <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
@@ -30,21 +29,29 @@
 <body>
     <script type="module" src="app.js"></script>
 
-    <div menu id="loading" class="menu hidden">
+    <div id="loading" class="panel-menu menu hidden">
         Loading...
     </div>
 
-    <div menu id="user" class="hidden" style="width: 100%; height: 100%;">
-        <div id="logged-out" class="menu">
-            <span id="login-error-message" style="color: red; display: none;">Hiba</span>
+    <div id="user" class="hidden menu" style="width: 100%; height: 100%;">
+        <div id="logged-out" class="panel-menu">
+            <div class="menuHeader">
+                Felhasználó
+            </div>
+
+            <span id="login-error-message" class="error-text" style="display: none;">Hiba</span>
             <input type="email" id="email" placeholder="email" /><br>
             <input type="password" id="password" placeholder="password" />
             <div class="button" onclick="window.Login()">Bejelentkezés</div>
             <div class="button" onclick="ShowMenu('downloads')">Vissza</div>
         </div>
 
-        <div id="logged-in" class="menu">
-            Logged in as <span id="firebase-displayName"></span><br>
+        <div id="logged-in" class="panel-menu">
+            <div class="menuHeader">
+                Felhasználó
+            </div>
+
+            <p>Logged in as <span id="firebase-displayName"></span></p>
             <span id="firebase-email"></span><br>
             <span id="firebase-emailVerified"></span><br>
             <span id="firebase-isAnonymous"></span><br>
@@ -57,18 +64,20 @@
         </div>
     </div>
 
-    <div menu id="downloads" class="menu">
+    <div id="downloads" class="panel-menu menu">
         <div class="menuHeader">
             Nothing
         </div>
 
         <div class="button" id="on-show-user-panel" onclick="ShowMenu('user')">Felhasználó</div>
-            
-        <a download href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%212453&authkey=AKaz2TB9zzdgAJg">
+
+        <a download
+            href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%212453&authkey=AKaz2TB9zzdgAJg">
             <div class="button">Letöltés PC-re</div>
         </a>
 
-        <a download href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%2153953&authkey=AO3BX-CNR5RWxCI">
+        <a download
+            href="https://onedrive.live.com/download?cid=6AEB0DA011C539BF&resid=6AEB0DA011C539BF%2153953&authkey=AO3BX-CNR5RWxCI">
             <div class="button">Letöltés Android-ra</div>
         </a>
     </div>

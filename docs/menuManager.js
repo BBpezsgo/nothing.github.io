@@ -1,7 +1,6 @@
 /** @param {string} menuId */
 function ShowMenu(menuId) {
-    const allMenu = document.querySelectorAll('[menu]');
-    //const allMenu = document.getElementsByClassName('menu')
+    const allMenu = document.getElementsByClassName('menu')
 
     for (let i = 0; i < allMenu.length; i++) {
         const menu = allMenu[i];

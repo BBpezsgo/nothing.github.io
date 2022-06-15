@@ -48,14 +48,14 @@ a {
     width: 100%;
 }
 
-.menu {
+.panel-menu {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }​
 
-.panel, .menu {
+.panel, .panel-menu {
     background: #0000003d;
     background-color: #0000003d;
     color: #ddd;
@@ -68,4 +68,54 @@ a {
 }
 .hidden > *, .hidden > * > *, .hidden > * > * > * {
     pointer-events: none;
+}
+
+input[type=email], input[type=password] {
+    border: none;
+    user-select: none;
+    outline: none;
+    background: #000000;
+    background: #0000003d;
+    margin: 10px;
+    padding: 5px 10px 7px 10px;
+    width: calc(100% - 40px);
+    color: #ddd;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+    min-width: 100px;
+    transition-duration: 200ms;
+}
+
+input[type=email]:hover, input[type=password]:hover,
+input[type=email]:focus, input[type=password]:focus {
+    background: #484848;
+    background: #48484860;
+}
+
+input[type=email]:invalid, input[type=password]:invalid {
+    border: 2px solid #ff0000 !important;
+}
+
+.panel-menu > p {
+    max-width: 190px;
+    margin: 10px;
+}
+
+a {
+    color: #77aeff;
+}
+
+a:hover {
+    color: #4274fc;
+}
+
+a:active {
+    color: #3845b9;
+}
+
+.error-text {
+    color: #e42a2a;
+    margin: 10px;
 }

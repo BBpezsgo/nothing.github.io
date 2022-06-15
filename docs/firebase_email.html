@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Innen letöltheted a játékot">
+    <meta name="author" content="BBpezsgo">
+    <meta property="og:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+    <meta name="twitter:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
+
+    <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
+    <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
+    <link rel="icon" href="/imgs/icons/ico64.png" sizes="64x64">
+    <link rel="icon" href="/imgs/icons/ico128.png" sizes="128x128">
+    <link rel="icon" href="/imgs/icons/ico256.png" sizes="256x256">
+    <link rel="icon" href="/imgs/icons/ico518.png" sizes="518x518">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>
+        Nothing
+    </title>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault())
+    </script>
+</head>
+
+<body>
+    <script type="module" src="email.js"></script>
+
+    <div id="loading" class="panel-menu menu hidden">
+        Loading...
+    </div>
+
+    <div id="invalid-action" class="panel-menu menu hidden">
+        <div class="menuHeader">
+            Hiba: Érvénytelen művelet.
+        </div>
+    </div>
+
+    <div id="invalid-code" class="panel-menu menu hidden">
+        <div class="menuHeader">
+            Hiba
+        </div>
+        <p>
+            Érvénytelen vagy lejárt kód.
+        </p>
+    </div>
+
+    <div id="confirm-password-reset" class="panel-menu menu hidden">
+        <div class="menuHeader">
+            Jelszó visszaállítása
+        </div>
+        <p>
+            A(z) <span id="confirm-password-reset-email-label">?</span> e-mailhez tartozó fiók jelszavának
+            visszaállítása. Írja be az új jelszavát, majd kattintson a 'Jelszó frissítése' gombra!
+        </p>
+        <p id="confirm-password-reset-error-message" class="error-text" style="display: none;">Hiba</p>
+        <input type="password" id="confirm-password-reset-new-password-textbox" placeholder="Új jelszó" disabled />
+        <button class="button" id="confirm-password-reset-submit" onclick="window.OnButton_ConfirmNewPassword()" disabled>Jelszó frissítése</button>
+    </div>
+
+    <div id="email-restored" class="panel-menu menu hidden">
+        <div class="menuHeader">
+            E-mail visszaállítása
+        </div>
+        <p>
+            Az e-mail címe visszaálíltva. Új jelszó igényléséhez kattintson <a href="#" onclick="window.OnButton_SendPasswordResetEmail()">ide</a>
+        </p>
+    </div>
+
+    <div id="email-verifyed" class="panel-menu menu">
+        <div class="menuHeader">
+            E-mail hitelesítve
+        </div>
+        <p>
+            Az e-mail címe hitelesítve.
+            <span id="email-verifyed-return" style="display: none;">Kattintson <a href="#" id="email-verifyed-return-link">ide</a>, hogy visszatérjen az előző oldalra.</span>
+        </p>
+    </div>
+</body>
+
+</html>
