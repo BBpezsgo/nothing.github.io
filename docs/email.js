@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             handleVerifyEmail(continueUrl, lang);
             break;
         default:
+            ShowMenu('invalid-action')
             break;
     }
 }, false);
