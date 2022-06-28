@@ -3,84 +3,84 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 import {
-    ActionCodeOperation, 
-    ActionCodeURL, 
-    AuthCredential, 
-    AuthErrorCodes, 
-    EmailAuthCredential, 
-    EmailAuthProvider, 
-    FacebookAuthProvider, 
-    FactorId, 
-    GithubAuthProvider, 
-    GoogleAuthProvider, 
-    OAuthCredential, 
-    OAuthProvider, 
-    OperationType, 
-    PhoneAuthCredential, 
-    PhoneAuthProvider, 
-    PhoneMultiFactorGenerator, 
-    ProviderId, 
-    RecaptchaVerifier, 
-    SAMLAuthProvider, 
-    SignInMethod, 
-    TwitterAuthProvider, 
-    applyActionCode, 
-    beforeAuthStateChanged, 
-    browserLocalPersistence, 
-    browserPopupRedirectResolver, 
-    browserSessionPersistence, 
-    checkActionCode, 
-    confirmPasswordReset, 
-    connectAuthEmulator, 
-    createUserWithEmailAndPassword, 
-    debugErrorMap, 
-    deleteUser, 
-    fetchSignInMethodsForEmail, 
-    getAdditionalUserInfo, 
-    getAuth, 
-    getIdToken, 
-    getIdTokenResult, 
-    getMultiFactorResolver, 
-    getRedirectResult, 
-    inMemoryPersistence, 
-    indexedDBLocalPersistence, 
-    initializeAuth, 
-    isSignInWithEmailLink, 
-    linkWithCredential, 
-    linkWithPhoneNumber, 
-    linkWithPopup, 
-    linkWithRedirect, 
-    multiFactor, 
-    onAuthStateChanged, 
-    onIdTokenChanged, 
-    parseActionCodeURL, 
-    prodErrorMap, 
-    reauthenticateWithCredential, 
-    reauthenticateWithPhoneNumber, 
-    reauthenticateWithPopup, 
-    reauthenticateWithRedirect, 
-    reload, 
-    sendEmailVerification, 
-    sendPasswordResetEmail, 
-    sendSignInLinkToEmail, 
-    setPersistence, 
-    signInAnonymously, 
-    signInWithCredential, 
-    signInWithCustomToken, 
-    signInWithEmailAndPassword, 
-    signInWithEmailLink, 
-    signInWithPhoneNumber, 
-    signInWithPopup, 
-    signInWithRedirect, 
-    signOut, 
-    unlink, 
-    updateCurrentUser, 
-    updateEmail, 
-    updatePassword, 
-    updatePhoneNumber, 
-    updateProfile, 
-    useDeviceLanguage, 
-    verifyBeforeUpdateEmail, 
+    ActionCodeOperation,
+    ActionCodeURL,
+    AuthCredential,
+    AuthErrorCodes,
+    EmailAuthCredential,
+    EmailAuthProvider,
+    FacebookAuthProvider,
+    FactorId,
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    OAuthCredential,
+    OAuthProvider,
+    OperationType,
+    PhoneAuthCredential,
+    PhoneAuthProvider,
+    PhoneMultiFactorGenerator,
+    ProviderId,
+    RecaptchaVerifier,
+    SAMLAuthProvider,
+    SignInMethod,
+    TwitterAuthProvider,
+    applyActionCode,
+    beforeAuthStateChanged,
+    browserLocalPersistence,
+    browserPopupRedirectResolver,
+    browserSessionPersistence,
+    checkActionCode,
+    confirmPasswordReset,
+    connectAuthEmulator,
+    createUserWithEmailAndPassword,
+    debugErrorMap,
+    deleteUser,
+    fetchSignInMethodsForEmail,
+    getAdditionalUserInfo,
+    getAuth,
+    getIdToken,
+    getIdTokenResult,
+    getMultiFactorResolver,
+    getRedirectResult,
+    inMemoryPersistence,
+    indexedDBLocalPersistence,
+    initializeAuth,
+    isSignInWithEmailLink,
+    linkWithCredential,
+    linkWithPhoneNumber,
+    linkWithPopup,
+    linkWithRedirect,
+    multiFactor,
+    onAuthStateChanged,
+    onIdTokenChanged,
+    parseActionCodeURL,
+    prodErrorMap,
+    reauthenticateWithCredential,
+    reauthenticateWithPhoneNumber,
+    reauthenticateWithPopup,
+    reauthenticateWithRedirect,
+    reload,
+    sendEmailVerification,
+    sendPasswordResetEmail,
+    sendSignInLinkToEmail,
+    setPersistence,
+    signInAnonymously,
+    signInWithCredential,
+    signInWithCustomToken,
+    signInWithEmailAndPassword,
+    signInWithEmailLink,
+    signInWithPhoneNumber,
+    signInWithPopup,
+    signInWithRedirect,
+    signOut,
+    unlink,
+    updateCurrentUser,
+    updateEmail,
+    updatePassword,
+    updatePhoneNumber,
+    updateProfile,
+    useDeviceLanguage,
+    verifyBeforeUpdateEmail,
     verifyPasswordResetCode
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -103,11 +103,39 @@ const app = initializeApp(firebaseConfig)
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app)
 
-function SetText(elementId, text) {
-    if (text == 'null' || text == 'undefined' || text == undefined) {
-        document.getElementById(elementId).innerText = ''
+function SetText(elementId, text, defaultText) {
+    if (text == 'null' || text == 'undefined' || text == undefined || text == '') {
+        if (defaultText == undefined) {
+            document.getElementById(elementId).innerText = ''
+        } else {
+            document.getElementById(elementId).innerText = defaultText
+        }
     } else {
         document.getElementById(elementId).innerText = text
+    }
+}
+
+function SetVisible(elementId, visible, defaultValue) {
+    if (visible == 'null' || visible == 'undefined' || visible == null || visible == undefined || visible == '') {
+        if (defaultValue != true) {
+            document.getElementById(elementId).style.display = 'none'
+        }
+    } else {
+        if (visible != true) {
+            document.getElementById(elementId).style.display = 'none'
+        }
+    }
+}
+
+function SetInvisible(elementId, invisible, defaultValue) {
+    if (invisible == 'null' || invisible == 'undefined' || invisible == null || invisible == undefined || invisible == '') {
+        if (defaultValue == true) {
+            document.getElementById(elementId).style.display = 'none'
+        }
+    } else {
+        if (invisible == true) {
+            document.getElementById(elementId).style.display = 'none'
+        }
     }
 }
 
@@ -117,13 +145,14 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
 
-        SetText('firebase-displayName', user.displayName)
+        SetText('firebase-displayName', user.displayName, '<Nincs felhasználónév>')
         SetText('firebase-email', user.email)
-        SetText('firebase-emailVerified', user.emailVerified)
-        SetText('firebase-isAnonymous', user.isAnonymous)
-        SetText('firebase-multiFactor', user.multiFactor)
-        SetText('firebase-phoneNumber', user.phoneNumber)
-        SetText('firebase-photoURL', user.photoURL)
+        SetVisible('firebase-emailVerified', user.emailVerified, false)
+        SetInvisible('firebase-emailUnverified', user.emailVerified, false)
+        SetVisible('firebase-isAnonymous', user.isAnonymous, false)
+        SetVisible('firebase-multiFactor', user.multiFactor, false)
+        SetText('firebase-phoneNumber', user.phoneNumber, '<nincs>')
+        SetText('firebase-photoURL', user.photoURL, '<nincs>')
         SetText('firebase-uid', user.uid)
 
         document.getElementById('logged-in').classList.remove('hidden')
@@ -181,7 +210,7 @@ window.Login = (event) => {
             document.getElementById('logged-in').classList.remove('hidden')
             document.getElementById('logged-out').classList.add('hidden')
 
-            document.getElementById('login-error-message').style.display = 'none'
+            document.getElementById('login-error').style.display = 'none'
         })
         .catch((error) => {
             const errorCode = error.code
@@ -191,7 +220,7 @@ window.Login = (event) => {
             document.getElementById('logged-in').classList.add('hidden')
             document.getElementById('logged-out').classList.remove('hidden')
 
-            document.getElementById('login-error-message').style.display = 'block'
+            document.getElementById('login-error').style.display = 'block'
             SetText('login-error-message', GetReadableError(errorCode))
         })
 }
@@ -200,7 +229,7 @@ function OnLoading() {
     document.getElementById('loading').classList.remove('hidden')
     document.getElementById('logged-in').classList.add('hidden')
     document.getElementById('logged-out').classList.add('hidden')
-    document.getElementById('login-error-message').style.display = 'none'
+    document.getElementById('login-error').style.display = 'none'
 }
 
 window.Logout = () => {

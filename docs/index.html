@@ -10,6 +10,8 @@
     <meta property="og:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
     <meta name="twitter:image" content="https://bbpezsgo.github.io/nothing.github.io/imgs/img.png">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
     <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
     <link rel="icon" href="/imgs/icons/ico64.png" sizes="64x64">
@@ -39,10 +41,16 @@
                 Felhasználó
             </div>
 
-            <span id="login-error-message" class="error-text" style="display: none;">Hiba</span>
-            <input type="email" id="email" placeholder="email" /><br>
-            <input type="password" id="password" placeholder="password" />
-            <div class="button" onclick="window.Login()">Bejelentkezés</div>
+            <span id="login-error" class="error-text" style="display: none;">
+                <i class="material-icons" style="font-size: 16px; transform: translateY(3px); margin-right: 5px;">&#xe000;</i><span id="login-error-message">Hiba</span></span>
+            
+            <form onsubmit="window.Login(); return false" style="transform: translateX(-2px);">
+                <span>Bejelentkezés</span>
+                <input type="email" id="email" placeholder="email" style="margin-bottom: 0px;" required />
+                <input type="password" id="password" placeholder="password" style="margin-bottom: 0px;" required />
+                <input type="submit" class="button" value="Bejelentkezés" style="width: calc(100% - 16px);" />
+            </form>
+
             <div class="button" onclick="ShowMenu('downloads')">Vissza</div>
         </div>
 
@@ -51,14 +59,36 @@
                 Felhasználó
             </div>
 
-            <p>Logged in as <span id="firebase-displayName"></span></p>
-            <span id="firebase-email"></span><br>
-            <span id="firebase-emailVerified"></span><br>
-            <span id="firebase-isAnonymous"></span><br>
-            <span id="firebase-multiFactor"></span><br>
-            <span id="firebase-phoneNumber"></span><br>
-            <span id="firebase-photoURL"></span><br>
-            <span id="firebase-uid"></span><br>
+            <p>
+                Bejelentkezve mint<br>
+                <b><span id="firebase-displayName"></span></b>
+                <div class="tooltip" id="firebase-isAnonymous"><img width="16" height="16" src="./imgs/anonymous.png" class="mini-icon">
+                    <span class="tooltiptext">Anonymous</span>
+                </div>
+            </p>
+            <ul>
+                <li>
+                    Email: <span id="firebase-email"></span>
+                    <div class="tooltip" id="firebase-emailVerified"><img width="16" height="16" src="./imgs/verified.svg" class="mini-icon">
+                        <span class="tooltiptext">Verified</span>
+                    </div>
+                    <div class="tooltip" id="firebase-emailUnverified"><img width="16" height="16" src="./imgs/unverified.svg" class="mini-icon">
+                        <span class="tooltiptext">Unerified</span>
+                    </div>
+                    <div class="tooltip" id="firebase-multiFactor"><img width="16" height="16" src="./imgs/2fa.svg" class="mini-icon">
+                        <span class="tooltiptext">2FA</span>
+                    </div>
+                </li>
+                <li>
+                    PhoneNumber: <span id="firebase-phoneNumber"></span>
+                </li>
+                <li>
+                    PhotoURL: <span id="firebase-photoURL"></span>
+                </li>
+                <li>
+                    UID: <span id="firebase-uid"></span>
+                </li>
+            </ul>
             <div class="button" onclick="window.Logout()">Kijelentkezés</div>
             <div class="button" onclick="ShowMenu('downloads')">Vissza</div>
         </div>
