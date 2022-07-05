@@ -145,7 +145,7 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
 
-        SetText('firebase-displayName', user.displayName, '<Nincs felhasználónév>')
+        SetText('firebase-displayName', user.displayName, '<No username>')
         SetText('firebase-email', user.email)
         SetVisible('firebase-emailVerified', user.emailVerified, false)
         SetInvisible('firebase-emailUnverified', user.emailVerified, false)
@@ -168,7 +168,7 @@ function GetReadableError(errorCode) {
         case 'auth/app-deleted':
             return "The instance of FirebaseApp has been deleted."
         case 'auth/app-not-authorized':
-            return "the app is not authorized to use Firebase Authentication with the provided API key."
+            return "The app is not authorized to use Firebase Authentication with the provided API key."
         case 'auth/argument-error':
             return "A method is called with incorrect arguments."
         case 'auth/invalid-api-key':

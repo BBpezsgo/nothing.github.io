@@ -34,48 +34,52 @@
 
     <div id="invalid-action" class="panel-menu menu hidden">
         <div class="menuHeader">
-            Hiba: Érvénytelen művelet.
+            Error: Invalid operation.
         </div>
     </div>
 
     <div id="invalid-code" class="panel-menu menu hidden">
         <div class="menuHeader">
-            Hiba
+            Error
         </div>
         <p>
-            Érvénytelen vagy lejárt kód.
+            Invalid or expired code.
         </p>
     </div>
 
     <div id="confirm-password-reset" class="panel-menu menu hidden">
         <div class="menuHeader">
-            Jelszó visszaállítása
+            Password reset
         </div>
         <p>
-            A(z) <span id="confirm-password-reset-email-label">?</span> e-mailhez tartozó fiók jelszavának
-            visszaállítása. Írja be az új jelszavát, majd kattintson a 'Jelszó frissítése' gombra!
+            Reset the password of the account associated with the <span id="confirm-password-reset-email-label">?</span>
+            e-mail. Enter your new password, then click the 'Update password' button!
         </p>
-        <p id="confirm-password-reset-error-message" class="error-text" style="display: none;">Hiba</p>
-        <input type="password" id="confirm-password-reset-new-password-textbox" placeholder="Új jelszó" disabled />
-        <button class="button" id="confirm-password-reset-submit" onclick="window.OnButton_ConfirmNewPassword()" disabled>Jelszó frissítése</button>
+        <p id="confirm-password-reset-error-message" class="error-text" style="display: none;">Error</p>
+        <input type="password" id="confirm-password-reset-new-password-textbox" placeholder="New password" disabled />
+        <button class="button" id="confirm-password-reset-submit" onclick="window.OnButton_ConfirmNewPassword()"
+            disabled>Reset password</button>
     </div>
 
     <div id="email-restored" class="panel-menu menu hidden">
         <div class="menuHeader">
-            E-mail visszaállítása
+            Email restore
         </div>
         <p>
-            Az e-mail címe visszaálíltva. Új jelszó igényléséhez kattintson <a href="#" onclick="window.OnButton_SendPasswordResetEmail()">ide</a>
+            Your email address has been restored.
+            <a href="#" onclick="window.OnButton_SendPasswordResetEmail()">Click here</a> to request a new password.
         </p>
     </div>
 
     <div id="email-verifyed" class="panel-menu menu hidden">
         <div class="menuHeader">
-            E-mail hitelesítve
+            Email verified
         </div>
         <p>
-            Az e-mail címe hitelesítve.
-            <span id="email-verifyed-return" style="display: none;">Kattintson <a href="#" id="email-verifyed-return-link">ide</a>, hogy visszatérjen az előző oldalra.</span>
+            Your email address is verified.
+            <span id="email-verifyed-return" style="display: none;">
+                <a href="#" id="email-verifyed-return-link">Click here</a> to return to the previous page.
+            </span>
         </p>
     </div>
 </body>

@@ -10,18 +10,23 @@ body {
 }
 
 .menuHeader {
+    background: #383838;
+    text-align: center;
     color: #fff;
-    padding: 10px 10px 0px 10px;
+    padding: 5px 10px 0px 10px;
     image-rendering: pixelated;
     background-size: 256px;
-    height: 32px;
+    height: 28px;
     font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: #0006 0px 3px 0px;
 }
 
 .button, button {
     border: none;
     user-select: none;
-    background: #0000003d;
+    background: #575757;
     margin: 10px;
     padding: 5px 10px 7px 10px;
     width: calc(100% - 40px);
@@ -32,15 +37,17 @@ body {
     cursor: pointer;
     font-style: normal;
     min-width: 100px;
-    transition-duration: 200ms;
+    transition-duration: 100ms;
+    border-radius: 7px;
+    outline: 2px solid #00000017;
 }
 
 .button:hover, button:hover {
-    background: #48484860;
+    background: #8E8E8E;
 }
 
 .button:active, button:active {
-    background: #C8C8C8a8;
+    background: #464646;
 }
 
 a {
@@ -53,13 +60,14 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: #000b 3px 3px 0px;
 }​
 
 .panel, .panel-menu {
-    background: #0000003d;
-    background-color: #0000003d;
+    background: #464646;
     color: #ddd;
     transition-duration: 500ms;
+    border-radius: 7px;
 }
 
 .hidden {
@@ -71,11 +79,9 @@ a {
 }
 
 input {
-    border: none;
     user-select: none;
-    outline: none;
-    background: #000000;
-    background: #0000003d;
+    border: none;
+    background: #2A2A2A;
     margin: 10px;
     padding: 5px 10px 7px 10px;
     width: calc(100% - 40px);
@@ -85,18 +91,18 @@ input {
     cursor: pointer;
     font-style: normal;
     min-width: 100px;
-    transition-duration: 200ms;
-    border: 2px solid #0000;
+    transition-duration: 100ms;
+    outline: 2px solid #00000033;
+    border-radius: 7px;
 }
 
 input:hover,
 input:focus {
-    background: #484848;
-    background: #48484860;
+    background: #3F3F3F;
 }
 
 input:invalid {
-    border: 2px solid #ff0000 !important;
+    outline-color: #e42a2a !important;
 }
 
 .panel-menu > p, .panel-menu > form {
