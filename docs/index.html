@@ -13,11 +13,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/favicon.ico">
-    <link rel="icon" href="/imgs/icons/ico32.png" sizes="32x32">
-    <link rel="icon" href="/imgs/icons/ico64.png" sizes="64x64">
-    <link rel="icon" href="/imgs/icons/ico128.png" sizes="128x128">
-    <link rel="icon" href="/imgs/icons/ico256.png" sizes="256x256">
-    <link rel="icon" href="/imgs/icons/ico518.png" sizes="518x518">
+    <link rel="icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/ico32.png" sizes="32x32">
+    <link rel="icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/ico64.png" sizes="64x64">
+    <link rel="icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/ico128.png" sizes="128x128">
+    <link rel="icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/ico256.png" sizes="256x256">
+    <link rel="icon" href="https://bbpezsgo.github.io/nothing.github.io/imgs/icons/ico518.png" sizes="518x518">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>
         Nothing
@@ -42,8 +42,10 @@
             </div>
 
             <span id="login-error" class="error-text" style="display: none;">
-                <i class="material-icons" style="font-size: 16px; transform: translateY(3px); margin-right: 5px;">&#xe000;</i><span id="login-error-message">Error</span></span>
-            
+                <i class="material-icons"
+                    style="font-size: 16px; transform: translateY(3px); margin-right: 5px;">&#xe000;</i><span
+                    id="login-error-message">Error</span></span>
+
             <form onsubmit="window.Login(); return false" style="transform: translateX(-2px);">
                 <span>Login</span>
                 <input type="email" id="email" placeholder="email" style="margin-bottom: 0px;" required />
@@ -62,20 +64,24 @@
             <p>
                 Logged in as<br>
                 <b><span id="firebase-displayName"></span></b>
-                <div class="tooltip" id="firebase-isAnonymous"><img width="16" height="16" src="./imgs/anonymous.png" class="mini-icon">
-                    <span class="tooltiptext">Anonymous</span>
-                </div>
+            <div class="tooltip" id="firebase-isAnonymous"><img width="16" height="16" src="./imgs/anonymous.png"
+                    class="mini-icon">
+                <span class="tooltiptext">Anonymous</span>
+            </div>
             </p>
             <ul>
                 <li>
                     Email: <span id="firebase-email"></span>
-                    <div class="tooltip" id="firebase-emailVerified"><img width="16" height="16" src="./imgs/verified.svg" class="mini-icon">
+                    <div class="tooltip" id="firebase-emailVerified"><img width="16" height="16"
+                            src="./imgs/verified.svg" class="mini-icon">
                         <span class="tooltiptext">Verified</span>
                     </div>
-                    <div class="tooltip" id="firebase-emailUnverified"><img width="16" height="16" src="./imgs/unverified.svg" class="mini-icon">
+                    <div class="tooltip" id="firebase-emailUnverified"><img width="16" height="16"
+                            src="./imgs/unverified.svg" class="mini-icon">
                         <span class="tooltiptext">Unerified</span>
                     </div>
-                    <div class="tooltip" id="firebase-multiFactor"><img width="16" height="16" src="./imgs/2fa.svg" class="mini-icon">
+                    <div class="tooltip" id="firebase-multiFactor"><img width="16" height="16" src="./imgs/2fa.svg"
+                            class="mini-icon">
                         <span class="tooltiptext">2FA</span>
                     </div>
                 </li>
@@ -171,6 +177,28 @@
         }
         function detect() {
             alert(`Device OS is: ${getOS()}`)
+        }
+    </script>
+
+    <!-- Get Browser -->
+    <script>
+        function GetBrowser() {
+            let userAgent = navigator.userAgent
+            let browserName
+            if (userAgent.match(/chrome|chromium|crios/i)) {
+                browserName = "chrome"
+            } else if (userAgent.match(/firefox|fxios/i)) {
+                browserName = "firefox"
+            } else if (userAgent.match(/safari/i)) {
+                browserName = "safari"
+            } else if (userAgent.match(/opr\//i)) {
+                browserName = "opera"
+            } else if (userAgent.match(/edg/i)) {
+                browserName = "edge"
+            } else {
+                browserName = "No browser detection";
+            }
+            return browserName
         }
     </script>
 

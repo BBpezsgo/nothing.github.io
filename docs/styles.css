@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("imgs/background.png");
+    background: #ac8a50 url("imgs/background.png");
     background-size: 256px;
     image-rendering: pixelated;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
