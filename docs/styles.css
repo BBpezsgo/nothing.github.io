@@ -74,7 +74,7 @@ a {
     pointer-events: none;
     opacity: 0;
 }
-.hidden > *, .hidden > * > *, .hidden > * > * > * {
+.hidden * {
     pointer-events: none;
 }
 
