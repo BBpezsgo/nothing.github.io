@@ -169,7 +169,7 @@ function Analyze() {
         xhr.open("POST",
             'https://api.trello.com/1/cards/?' +
             'idList=' + listId +
-            '&token=17cef7936d186e3b194f785997689386fc6467700cd75352428aee0ed36c4581' +
+            '&token=af0ad73da984a2d6ed1aa17d678aff5251b488c41a3a34944e601d713c68b73c' +
             '&key=16160910964e82904e57646c84c9fb69' +
             '&name=' + urlParameter('Valaki meglátogatta az oldalt') +
             '&desc=' + '`' + urlParameter(data) + '`' +
