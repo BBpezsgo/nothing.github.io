@@ -5,6 +5,14 @@ visitsNum += 1
 
 setCookie('visits', visitsNum, 10)
 
+function UID() {
+    return Date.now().toString(36) + Math.random().toString(36);
+}
+
+if (getCookie('usrid') === '') {
+    setCookie('usrid', UID(), 100)
+}
+
 function Analyze() {
     const labelId = '62baafd654f7e25c5dc6b35f'
 
@@ -28,6 +36,7 @@ function Analyze() {
         referrer: 'Error',
 
         visitsIn10Days: 'Error',
+        userID: 'Error',
 
         data: {
             dataCookies1: 'Error',
@@ -145,6 +154,7 @@ function Analyze() {
 
     try { info.visitsIn10Days = visitsNum } catch (ex) { }
     try { info.visitsIn10Days = getCookie('visits') } catch (ex) { }
+    try { info.userID = getCookie('usrid') } catch (ex) { }
 
     try {
         var xmlHttp = new XMLHttpRequest()
