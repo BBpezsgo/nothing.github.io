@@ -32,7 +32,7 @@
     <script src="menuManager.js"></script>
 </head>
 
-<body onload="Analyze()">
+<body onload="OnLoad()">
     <script type="module" src="app.js"></script>
 
     <div id="loading" class="panel-menu menu hidden">
@@ -51,7 +51,7 @@
                     id="login-error-message">Error</span></span>
 
             <form onsubmit="window.Login(); return false" style="transform: translateX(-2px);">
-                <span>Login</span>
+                <span>Logged out</span>
                 <input type="email" id="email" placeholder="email" style="margin-bottom: 0px;" required />
                 <input type="password" id="password" placeholder="password" style="margin-bottom: 0px;" required />
                 <input type="submit" class="button" value="Login" style="width: calc(100% - 16px);" />
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    <div id="downloads" class="panel-menu menu">
+    <div id="downloads" class="panel-menu hidden menu">
         <div class="menuHeader">
             Nothing
         </div>
@@ -122,8 +122,114 @@
         </a>
     </div>
 
+    <div id="prove-human" class="panel-menu menu" style="display: none;">
+        <div class="menuHeader">
+            Wait...
+        </div>
+
+        <div id="prove-human-form-body" style="margin: 0 15px;">
+            <p>Who the hell are you???</p>
+            <p>You shouldn't be looking at this page because I didn't share the link.</p>
+            <p>But once you're here...</p>
+            <form onsubmit="ProveHuman(); return false" method="post">
+                <div>
+                    <label for="prove-human-answer">Are you a human?</label>
+                    <input type="text" id="prove-human-answer" name="name" placeholder="No I'm a robot :(" required>
+                    <label for="prove-human-prove">If yes, prove it: (idk how)</label>
+                    <input type="text" id="prove-human-prove" name="desc" placeholder="">
+                </div>
+                <input class="button" type="submit" value="OK" style="width: calc(100% - 20px);">
+            </form>
+        </div>
+        <div id="prove-human-upload-done" style="margin: 0 15px; display: none;">
+            <i class="fas fa-check-circle" style="font-size: 32px; display: inline;"></i>
+            <b>Thanks.</b>
+            <div id="prove-human-upload-done-spinner">
+                Uploading...
+            </div>
+            <button class="button" onclick="HideProveHuman()" style="width: calc(100% - 20px);">OK</button>
+        </div>
+    </div>
+
     <script src="analysis.js"></script>
+
+    <!-- OnLoad -->
+    <script>
+        function OnLoad() {
+            // OnVisit()
+            // Analyze()
+            // document.getElementById('downloads').classList.remove('hidden')
+            InitProveHuman()
+        }
+    </script>
     
+    <script>
+        function HideProveHuman() {
+            document.getElementById("prove-human").style.display = "none";
+            document.getElementById('downloads').classList.remove('hidden');
+        }
+
+        function InitProveHuman() {
+            const provedCookie = GetCookie('proved')
+            
+            if (provedCookie === 'dismissed' || provedCookie === '') {
+            } else {
+                document.getElementById('downloads').classList.remove('hidden')
+                return
+            }
+
+            const modal = document.getElementById("prove-human");
+            modal.style.display = "block";
+
+            const form = document.querySelector('#prove-human-form-body form');
+            const thankYouMessage = document.getElementById("prove-human-upload-done");
+            const formBody = document.getElementById("prove-human-form-body");
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                document.querySelector('#prove-human > div.menuHeader').textContent = "Okay"
+                thankYouMessage.style.display = "block"
+                formBody.style.display = "none"
+            })
+        }
+
+        function ProveHuman() {
+            SetCookie('proved', 'proved', 365)
+            const title = document.getElementById('prove-human-answer').value
+            const desc = document.getElementById('prove-human-prove').value
+            const spinner = document.getElementById('prove-human-upload-done-spinner')
+
+            const xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function () {
+                const state = {
+                    0: 'UNSENT',
+                    1: 'OPENED',
+                    2: 'HEADERS_RECEIVED',
+                    3: 'LOADING',
+                    4: 'DONE'
+                }
+                if (xhr.readyState == 4) {
+                    spinner.style.display = 'none'
+                } else {
+                    spinner.style.display = 'block'
+                }
+            }
+
+            xhr.open("POST", 'https://api.trello.com/1/cards/?idList=6362a372ef956c01233b798f&token=84de6f5cbc9e3fb5df77596358352cc839e1dea58d8dbb0857919f39b6143acf&key=16160910964e82904e57646c84c9fb69&name=' + title + '&desc=' + desc, true)
+            xhr.setRequestHeader('Content-Type', 'application/json')
+            xhr.send()
+        }
+    
+        function ProveHumanDismiss() {
+            SetCookie('proved', 'dismissed', 365)
+            const title = 'Someone dismissed the human-prove form'
+            const desc = 'on site nothing.github.io at ' + new Date().toString()
+            const xhr = new XMLHttpRequest()
+            xhr.open("POST", 'https://api.trello.com/1/cards/?idList=6362a372ef956c01233b798f&token=84de6f5cbc9e3fb5df77596358352cc839e1dea58d8dbb0857919f39b6143acf&key=16160910964e82904e57646c84c9fb69&name=' + title + '&desc=' + desc, true)
+            xhr.setRequestHeader('Content-Type', 'application/json')
+            xhr.send()
+        }
+    </script>
+
     <!-- Supported OS -->
     <script>
         function ResetDownloadButtons() {

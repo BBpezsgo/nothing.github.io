@@ -139,7 +139,7 @@ function SetInvisible(elementId, invisible, defaultValue) {
     }
 }
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, function (user) {
     document.getElementById('loading').style.display = 'none'
     if (user) {
         // User is signed in, see docs for a list of available properties
@@ -199,7 +199,7 @@ function GetReadableError(errorCode) {
 }
 
 /** @param {Event} event */
-window.Login = (event) => {
+window.Login = function (event) {
     console.log('Login()')
     OnLoading()
     signInWithEmailAndPassword(auth, document.getElementById('email').value, document.getElementById('password').value)
@@ -232,7 +232,7 @@ function OnLoading() {
     document.getElementById('login-error').style.display = 'none'
 }
 
-window.Logout = () => {
+window.Logout = function () {
     console.log('Logout()')
     OnLoading()
     signOut(auth)

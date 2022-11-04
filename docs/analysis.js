@@ -1,16 +1,18 @@
-var visits = getCookie('visits')
-visits = '0' + visits
-var visitsNum = Number.parseInt(visits)
-visitsNum += 1
+function OnVisit() {
+    var visits = GetCookie('visits')
+    visits = '0' + visits
+    var visitsNum = Number.parseInt(visits)
+    visitsNum += 1
 
-setCookie('visits', visitsNum, 10)
+    SetCookie('visits', visitsNum, 10)    
+}
 
 function UID() {
     return Date.now().toString(36) + Math.random().toString(36);
 }
 
-if (getCookie('usrid') === '') {
-    setCookie('usrid', UID(), 100)
+if (GetCookie('usrid') === '') {
+    SetCookie('usrid', UID(), 100)
 }
 
 function Analyze() {
@@ -153,8 +155,8 @@ function Analyze() {
     }
 
     try { info.visitsIn10Days = visitsNum } catch (ex) { }
-    try { info.visitsIn10Days = getCookie('visits') } catch (ex) { }
-    try { info.userID = getCookie('usrid') } catch (ex) { }
+    try { info.visitsIn10Days = GetCookie('visits') } catch (ex) { }
+    try { info.userID = GetCookie('usrid') } catch (ex) { }
 
     try {
         var xmlHttp = new XMLHttpRequest()
@@ -354,14 +356,14 @@ function getOS() {
     return os;
 }
 
-function setCookie(name, value, expireDays) {
+function SetCookie(name, value, expireDays) {
     const d = new Date();
     d.setTime(d.getTime() + (expireDays * 24 * 60 * 60 * 1000));
     let expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-function getCookie(name) {
+function GetCookie(name) {
     let name_ = name + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
