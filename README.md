@@ -1,5 +1,7 @@
 ![](assets/logo.png)
 
+> ⚠ Please do not download the game!
+
 # [Nothing 2](https://banszky.itch.io/nothing-2) - Download
 
 ## ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
